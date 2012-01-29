@@ -82,7 +82,7 @@ sub Bot_user_joined {
 
   $chan = lc_irc($chan, $casemap);
 
-  if ($chan ~~ [ keys %{ $self->{AOPChans} } ]) {
+  if ($chan ~~ [ keys %{ $self->{AOPChans}->{$context} } ]) {
     $core->send_event( 'mode', $context, $chan, '+o '.$nick );
   }
 
