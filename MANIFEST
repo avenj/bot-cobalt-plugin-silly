@@ -1,6 +1,6 @@
 Build.PL
-Cobalt/Plugin/Silly/AutoOpAll.pm
-MANIFEST			This list of files
+lib/Cobalt/Plugin/Silly/AutoOpAll.pm
 Makefile.PL
-META.yml
+MANIFEST			This list of files
 META.json
+META.yml
