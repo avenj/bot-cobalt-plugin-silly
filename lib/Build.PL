@@ -1,0 +1,28 @@
+#!/usr/bin/env perl
+use strict;
+use warnings;
+use Module::Build;
+
+my $build = Module::Build->new(
+  dist_version => '0.01',
+
+  module_name => 'Cobalt::Plugin::Silly',
+  dist_name => 'Cobalt-Plugin-Silly',
+  dist_abstract => 'Silly Cobalt2 plugins',
+  dist_author  => 'Jon Portnoy <avenj@cobaltirc.org>',
+
+  license => 'perl',
+  
+  create_makefile_pl => 'small',
+  
+  requires => {
+    'perl' => '5.12.1',
+
+    'Cobalt::Core' => 0,
+    'Cobalt::Serializer' => 0,
+    
+    'Object::Pluggable::Constants' => 0,
+  },
+);
+
+$build->create_build_script;
