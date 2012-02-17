@@ -40,7 +40,7 @@ sub Bot_public_cmd_lolcat {
   my $msg     = ${ $_[1] };
 
   my $str = decode_irc( $msg->{message} );
-  $str ||= "No string to handle";
+  $str ||= "Can I have a line to parse?";
 
   my $filter = $self->{Filter};
   $filter->get_one_start([$str."\n"]);
@@ -60,3 +60,26 @@ sub Bot_public_cmd_lolcat {
 
 1;
 __END__
+=pod
+
+=head1 NAME
+
+Cobalt::Plugin::Silly::LOLCAT
+
+=head1 SYNOPSIS
+
+  !plugin load LOLCAT Cobalt::Plugin::Silly::LOLCAT
+  !lolcat some text here
+
+=head1 DESCRIPTION
+
+A simple bridge to L<POE::Filter::LOLCAT> (which in turn uses 
+L<Acme::LOLCAT>).
+
+=head1 AUTHOR
+
+Jon Portnoy <avenj@cobaltirc.org>
+
+L<http://www.cobaltirc.org>
+
+=cut
