@@ -29,7 +29,7 @@ sub Bot_public_cmd_reverse {
   my $msg     = ${ $_[1] };
 
   my @message = @{$msg->{message_array}};
-  my $str = join ' ', @message[1 .. $#message];
+  my $str = join ' ', @message;
 
   my $reverse = join '', reverse(split //, $str);
 
