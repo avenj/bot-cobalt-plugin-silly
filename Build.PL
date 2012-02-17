@@ -23,9 +23,7 @@ my $build = Module::Build->new(
     'Cobalt::Common'     => 0,
     
     'Object::Pluggable::Constants' => 0,
-  },
-  
-  recommends => {
+
     'POE::Filter::Stackable' => 0,
     'POE::Filter::Line'      => 0,
     'POE::Filter::LOLCAT'    => 0,    

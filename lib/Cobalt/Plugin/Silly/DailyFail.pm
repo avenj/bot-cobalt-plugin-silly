@@ -1,4 +1,4 @@
-package Cobalt::Plugin::Silly::LOLCAT;
+package Cobalt::Plugin::Silly::DailyFail;
 our $VERSION = '0.01';
 
 use Acme::Daily::Fail qw/get_headline/;
