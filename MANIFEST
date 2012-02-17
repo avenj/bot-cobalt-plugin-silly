@@ -1,4 +1,5 @@
 Build.PL
+lib/Cobalt/Plugin/Silly.pm
 lib/Cobalt/Plugin/Silly/AutoOpAll.pm
 lib/Cobalt/Plugin/Silly/DailyFail.pm
 lib/Cobalt/Plugin/Silly/LOLCAT.pm

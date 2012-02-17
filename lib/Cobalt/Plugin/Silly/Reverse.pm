@@ -37,7 +37,7 @@ sub Bot_public_cmd_reverse {
   $core->send_event( 'send_message',
     $context,
     $channel,
-    $reverse
+    "reverse: ".$reverse
   );  
   
   return PLUGIN_EAT_ALL

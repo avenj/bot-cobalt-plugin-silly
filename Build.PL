@@ -4,10 +4,7 @@ use warnings;
 use Module::Build;
 
 my $build = Module::Build->new(
-  dist_version => '0.04',
-
   module_name => 'Cobalt::Plugin::Silly',
-  dist_name => 'Cobalt-Plugin-Silly',
   dist_abstract => 'Silly Cobalt2 plugins',
   dist_author  => 'Jon Portnoy <avenj@cobaltirc.org>',
 

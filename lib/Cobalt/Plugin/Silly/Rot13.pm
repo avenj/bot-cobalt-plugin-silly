@@ -37,7 +37,7 @@ sub Bot_public_cmd_rot13 {
   $core->send_event( 'send_message',
     $context,
     $channel,
-    $str
+    "rot13: ".$str
   );  
   
   return PLUGIN_EAT_ALL
