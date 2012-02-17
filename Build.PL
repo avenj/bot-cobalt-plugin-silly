@@ -4,7 +4,7 @@ use warnings;
 use Module::Build;
 
 my $build = Module::Build->new(
-  dist_version => '0.01',
+  dist_version => '0.02',
 
   module_name => 'Cobalt::Plugin::Silly',
   dist_name => 'Cobalt-Plugin-Silly',
@@ -18,10 +18,15 @@ my $build = Module::Build->new(
   requires => {
     'perl' => '5.12.1',
 
-    'Cobalt::Core' => 0,
+    'Cobalt::Core'       => 0,
     'Cobalt::Serializer' => 0,
+    'Cobalt::Common'     => 0,
     
     'Object::Pluggable::Constants' => 0,
+
+    'POE::Filter::Stackable' => 0,
+    'POE::Filter::Line'      => 0,
+    'POE::Filter::LOLCAT'    => 0,
   },
 );
 
