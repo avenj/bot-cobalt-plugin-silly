@@ -90,3 +90,28 @@ sub Bot_user_joined {
 }
 
 1;
+__END__
+
+=pod
+
+=head1 NAME
+
+Cobalt::Plugin::Silly::AutoOpAll - op all users on a channel
+
+=head1 SYNOPSIS
+
+  !plugin load AOPAll Cobalt::Plugin::Silly::AutoOpAll
+  !aopall #mychan
+
+The !aopall command equires at least access level 3.
+
+=head1 DESCRIPTION
+
+Totally silly plugin to automatically op every user joining a channel 
+specified via '!aopall' (assuming the bot is opped, of course).
+
+=head1 AUTHOR
+
+Jon Portnoy <avenj@cobaltirc.org>
+
+=cut

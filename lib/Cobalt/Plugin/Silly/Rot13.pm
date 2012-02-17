@@ -1,9 +1,7 @@
-package Cobalt::Plugin::Silly::DailyFail;
+package Cobalt::Plugin::Silly::Rot13;
 our $VERSION = '0.01';
 
-use Acme::Daily::Fail qw/get_headline/;
-
-use Cobalt::Common;
+use Object::Pluggable::Constants qw/ :ALL /;
 
 sub new { bless {}, shift }
 
@@ -11,7 +9,7 @@ sub Cobalt_register {
   my ($self, $core) = splice @_, 0, 2;
   
   $core->plugin_register( $self, 'SERVER',
-    [ 'public_cmd_headline', 'public_cmd_dailyfail' ]  
+    [ 'public_cmd_rot13' ]  
   );
   
   $core->log->info("$VERSION loaded");
@@ -24,21 +22,23 @@ sub Cobalt_unregister {
   return PLUGIN_EAT_NONE
 }
 
-sub Bot_public_cmd_dailyfail { Bot_public_cmd_headline(@_) }
-sub Bot_public_cmd_headline {
+sub Bot_public_cmd_rot13 {
   my ($self, $core) = splice @_, 0, 2;
 
   my $context = ${ $_[0] };
   my $msg     = ${ $_[1] };
 
-  my $resp = get_headline();
+  my @message = @{$msg->{message_array}};
+  my $str = join ' ', @message[1 .. $#message];
+
+  $str =~ tr/a-zA-Z/n-za-mN-ZA-M/;
 
   my $channel = $msg->{channel};
   $core->send_event( 'send_message',
     $context,
     $channel,
-    $resp
-  ) if $resp;
+    $str
+  );  
   
   return PLUGIN_EAT_ALL
 }
@@ -49,24 +49,19 @@ __END__
 
 =head1 NAME
 
-Cobalt::Plugin::Silly::DailyFail - get silly headlines
+Cobalt::Plugin::Silly::Ro13
 
 =head1 SYNOPSIS
 
-  !plugin load DailyFail Cobalt::Plugin::Silly::DailyFail
-  !headline
-  !dailyfail
+  !plugin load Rot13 Cobalt::Plugin::Silly::Rot13
+  !rot13 some text
 
 =head1 DESCRIPTION
 
-A simple bridge to L<Acme::Daily::Fail>.
-
-Produces random newspaper headlines.
+Rotate every character of a string 13 positions.
 
 =head1 AUTHOR
 
 Jon Portnoy <avenj@cobaltirc.org>
-
-L<http://www.cobaltirc.org>
 
 =cut
