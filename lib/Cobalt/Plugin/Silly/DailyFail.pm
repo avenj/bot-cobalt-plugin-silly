@@ -1,5 +1,5 @@
 package Cobalt::Plugin::Silly::DailyFail;
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 use Acme::Daily::Fail qw/get_headline/;
 
@@ -37,7 +37,7 @@ sub Bot_public_cmd_headline {
   $core->send_event( 'send_message',
     $context,
     $channel,
-    $resp
+    "BREAKING: ".$resp
   ) if $resp;
   
   return PLUGIN_EAT_ALL
