@@ -5,7 +5,6 @@ use Cobalt::Common;
 
 use URI::Escape;
 use HTTP::Request;
-use HTML::Strip;
 
 sub new { bless {}, shift }
 
@@ -57,9 +56,13 @@ sub Bot_mstomatic_resp_recv {
     return PLUGIN_EAT_ALL
   }
 
-  my $content = $response->decoded_content;
-  my $hs = HTML::Strip->new();
-  my $mst_rant = $hs->parse($content);
+  my $mst_rant;
+  my $content = $response->content;
+  if ( $content =~ /<h1><a.*>(.*)<\/a><\/h1>/i ) {
+    $mst_rant = $1;
+  } else {
+    $mst_rant = "Unable to parse a mst rant!";
+  }
   
   $core->send_event( 'send_message', $context, $channel,
     $mst_rant
@@ -90,7 +93,7 @@ sub _request_mst {
     );
     my $resp = $ua->get($uri);
     $core->send_event( 'mstomatic_resp_recv', 
-      $resp->decoded_content || undef,
+      $resp->content || undef,
       $resp, 
       [ $context, $channel ] 
     );

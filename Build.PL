@@ -29,7 +29,6 @@ my $build = Module::Build->new(
   },
   
   recommends => {
-    'HTML::Strip'  => 0,
   },
 );
 
