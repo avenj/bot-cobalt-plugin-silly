@@ -5,6 +5,7 @@ use Cobalt::Common;
 
 use URI::Escape;
 use HTTP::Request;
+use HTML::Strip;
 
 sub new { bless {}, shift }
 
