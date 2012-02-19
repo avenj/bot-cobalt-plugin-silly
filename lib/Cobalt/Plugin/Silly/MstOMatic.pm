@@ -59,7 +59,7 @@ sub Bot_mstomatic_resp_recv {
   my $mst_rant;
   my $content = $response->content;
   if ( $content =~ /<h1><a.*>(.*)<\/a><\/h1>/i ) {
-    $mst_rant = $1;
+    $mst_rant = "MST: $1";
   } else {
     $mst_rant = "Unable to parse a mst rant!";
   }
