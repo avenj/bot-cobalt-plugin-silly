@@ -1,5 +1,5 @@
 package Cobalt::Silly;
-our $VERSION = '0.06';
+our $VERSION = '0.07';
 
 sub new { die "This package is just a placeholder.\n" }
 
@@ -18,6 +18,7 @@ A collection of silly plugins:
 
 =over
 
+
 =item *
 
 L<Cobalt::Plugin::Silly::AutoOpAll>
@@ -32,11 +33,16 @@ L<Cobalt::Plugin::Silly::LOLCAT>
 
 =item *
 
+L<Cobalt::Plugin::Silly::MstOMatic>
+
+=item *
+
 L<Cobalt::Plugin::Silly::Reverse>
 
 =item *
 
 L<Cobalt::Plugin::Silly::Rot13>
+
 
 =back
 

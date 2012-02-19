@@ -27,6 +27,10 @@ my $build = Module::Build->new(
 
     'Acme::Daily::Fail'  => 0,
   },
+  
+  recommends => {
+    'HTML::Strip'  => 0,
+  },
 );
 
 $build->create_build_script;
