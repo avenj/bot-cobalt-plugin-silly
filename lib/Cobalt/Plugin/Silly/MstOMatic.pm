@@ -5,14 +5,12 @@ use Cobalt::Common;
 
 use URI::Escape;
 use HTTP::Request;
-use HTML::Strip;
 
 sub new { bless {}, shift }
 
 sub Cobalt_register {
   my ($self, $core) = splice @_, 0, 2;
   $self->{core} = $core;
-  $self->{HTMLStrip} = HTML::Strip->new;
   $core->plugin_register( $self, 'SERVER',
     [
       'public_cmd_mst',
@@ -58,9 +56,9 @@ sub Bot_mstomatic_resp_recv {
     return PLUGIN_EAT_ALL
   }
 
-  my $mst_rant = $response->decoded_content;
-  $mst_rant = $self->{HTMLStrip}->parse($mst_rant);
-  $self->{HTMLStrip}->eof;
+  my $content = $response->decoded_content;
+  my $hs = HTML::Strip->new();
+  my $mst_rant = $hs->parse($content);
   
   $core->send_event( 'send_message', $context, $channel,
     $mst_rant
