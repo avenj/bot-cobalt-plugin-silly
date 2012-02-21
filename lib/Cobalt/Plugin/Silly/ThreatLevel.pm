@@ -1,5 +1,5 @@
 package Cobalt::Plugin::Silly::ThreatLevel;
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 use Cobalt::Common;
 
@@ -19,8 +19,8 @@ sub Cobalt_register {
       'terrorlev_resp_recv',
     ],
   );
+  $self->{Cached} = {};
   $core->log->info("$VERSION loaded");
-
   return PLUGIN_EAT_NONE 
 }
 
@@ -38,7 +38,19 @@ sub Bot_public_cmd_terrorism {
   
   my $channel = $msg->{channel};
 
-  $self->_request( $context, $channel);
+  if ( $self->{Cached}->{Time}
+    && (time - $self->{Cached}->{Time}) < 600
+  ) {
+    my $threatlev = $self->{Cached}->{Level};
+    my $str = "DHS terror threat level: $threatlev";
+    $core->send_event( 'send_message',
+      $context,
+      $channel,
+      $str
+    );
+  } else {
+    $self->_request( $context, $channel);
+  }
   
   return PLUGIN_EAT_ALL
 }
@@ -66,6 +78,10 @@ sub Bot_terrorlev_resp_recv {
   } else {
     my $threatlev = $xmlref->{CONDITION} // "XML parse error";
     $threatstr = "DHS terror threat level: $threatlev";
+    $self->{Cached} = {
+      Level => $threatlev,
+      Time  => time(),
+    };
   }
   
   $core->send_event( 'send_message', $context, $channel,
