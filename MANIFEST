@@ -3,8 +3,10 @@ lib/Cobalt/Plugin/Silly.pm
 lib/Cobalt/Plugin/Silly/AutoOpAll.pm
 lib/Cobalt/Plugin/Silly/DailyFail.pm
 lib/Cobalt/Plugin/Silly/LOLCAT.pm
+lib/Cobalt/Plugin/Silly/MstOMatic.pm
 lib/Cobalt/Plugin/Silly/Reverse.pm
 lib/Cobalt/Plugin/Silly/Rot13.pm
+lib/Cobalt/Plugin/Silly/ThreatLevel.pm
 Makefile.PL
 MANIFEST			This list of files
 META.json
