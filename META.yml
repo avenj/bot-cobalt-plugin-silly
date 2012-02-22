@@ -12,11 +12,42 @@ meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
   version: 1.4
 name: Cobalt-Plugin-Silly
+provides:
+  Cobalt::Plugin::Silly::AutoOpAll:
+    file: lib/Cobalt/Plugin/Silly/AutoOpAll.pm
+    version: 0.01
+  Cobalt::Plugin::Silly::DailyFail:
+    file: lib/Cobalt/Plugin/Silly/DailyFail.pm
+    version: 0.02
+  Cobalt::Plugin::Silly::LOLCAT:
+    file: lib/Cobalt/Plugin/Silly/LOLCAT.pm
+    version: 0.01
+  Cobalt::Plugin::Silly::MstOMatic:
+    file: lib/Cobalt/Plugin/Silly/MstOMatic.pm
+    version: 0.01
+  Cobalt::Plugin::Silly::Reverse:
+    file: lib/Cobalt/Plugin/Silly/Reverse.pm
+    version: 0.01
+  Cobalt::Plugin::Silly::Rot13:
+    file: lib/Cobalt/Plugin/Silly/Rot13.pm
+    version: 0.01
+  Cobalt::Plugin::Silly::ThreatLevel:
+    file: lib/Cobalt/Plugin/Silly/ThreatLevel.pm
+    version: 0.02
+  Cobalt::Silly:
+    file: lib/Cobalt/Plugin/Silly.pm
+    version: 0.08
 requires:
+  Acme::Daily::Fail: 0
+  Cobalt::Common: 0
   Cobalt::Core: 0
   Cobalt::Serializer: 0
   Object::Pluggable::Constants: 0
+  POE::Filter::LOLCAT: 0
+  POE::Filter::Line: 0
+  POE::Filter::Stackable: 0
+  XML::Simple: 0
   perl: v5.12.1
 resources:
   license: http://dev.perl.org/licenses/
-version: 0.01
+version: 0.07
