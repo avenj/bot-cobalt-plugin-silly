@@ -35,6 +35,10 @@
       }
    },
    "provides" : {
+      "Cobalt::Plugin::Silly" : {
+         "file" : "lib/Cobalt/Plugin/Silly.pm",
+         "version" : "0.09"
+      },
       "Cobalt::Plugin::Silly::AutoOpAll" : {
          "file" : "lib/Cobalt/Plugin/Silly/AutoOpAll.pm",
          "version" : "0.01"
@@ -62,10 +66,6 @@
       "Cobalt::Plugin::Silly::ThreatLevel" : {
          "file" : "lib/Cobalt/Plugin/Silly/ThreatLevel.pm",
          "version" : "0.02"
-      },
-      "Cobalt::Silly" : {
-         "file" : "lib/Cobalt/Plugin/Silly.pm",
-         "version" : "0.08"
       }
    },
    "release_status" : "stable",

@@ -13,6 +13,9 @@ meta-spec:
   version: 1.4
 name: Cobalt-Plugin-Silly
 provides:
+  Cobalt::Plugin::Silly:
+    file: lib/Cobalt/Plugin/Silly.pm
+    version: 0.09
   Cobalt::Plugin::Silly::AutoOpAll:
     file: lib/Cobalt/Plugin/Silly/AutoOpAll.pm
     version: 0.01
@@ -34,9 +37,6 @@ provides:
   Cobalt::Plugin::Silly::ThreatLevel:
     file: lib/Cobalt/Plugin/Silly/ThreatLevel.pm
     version: 0.02
-  Cobalt::Silly:
-    file: lib/Cobalt/Plugin/Silly.pm
-    version: 0.08
 requires:
   Acme::Daily::Fail: 0
   Cobalt::Common: 0

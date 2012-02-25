@@ -1,7 +1,7 @@
-package Cobalt::Silly;
-our $VERSION = '0.08';
+package Cobalt::Plugin::Silly;
+our $VERSION = '0.09';
 
-sub new { die "This package is just a placeholder.\n" }
+sub new { die __PACKAGE__" is just a placeholder." }
 
 1;
 __END__
