@@ -1,5 +1,5 @@
 package Cobalt::Plugin::Silly::AutoOpAll;
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 use 5.12.1;
 use strict;
@@ -65,6 +65,11 @@ sub Bot_public_cmd_aopall {
     } else {
       $resp = "No such chan ($chan) found";
     }
+    $core->send_event( 'send_notice',
+      $context,
+      $nick,
+      $resp
+    );
   }
   
   return PLUGIN_EAT_ALL
