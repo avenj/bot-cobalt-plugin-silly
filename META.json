@@ -37,7 +37,7 @@
    "provides" : {
       "Cobalt::Plugin::Silly" : {
          "file" : "lib/Cobalt/Plugin/Silly.pm",
-         "version" : "0.09"
+         "version" : "0.101"
       },
       "Cobalt::Plugin::Silly::AutoOpAll" : {
          "file" : "lib/Cobalt/Plugin/Silly/AutoOpAll.pm",
@@ -74,5 +74,5 @@
          "http://dev.perl.org/licenses/"
       ]
    },
-   "version" : "0.09"
+   "version" : "0.101"
 }

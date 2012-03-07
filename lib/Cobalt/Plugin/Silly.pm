@@ -1,5 +1,5 @@
 package Cobalt::Plugin::Silly;
-our $VERSION = '0.09';
+our $VERSION = '0.101';
 
 sub new { die __PACKAGE__" is just a placeholder." }
 

@@ -1,9 +1,10 @@
-use Test::More tests => 21;
+use Test::More tests => 24;
 
 my @modules = qw/
   AutoOpAll
   DailyFail
   LOLCAT
+  OutputLOLCAT
   MstOMatic
   Reverse
   Rot13
