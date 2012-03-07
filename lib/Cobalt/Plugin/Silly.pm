@@ -36,6 +36,11 @@ Bridge <POE::Filter::LOLCAT>
 
 =item *
 
+L<Cobalt::Plugin::Silly::OutputLOLCAT> 
+LOLCAT-enabled output filter
+
+=item *
+
 L<Cobalt::Plugin::Silly::MstOMatic>
 Get Matt S. Trout rants on demand.
 
