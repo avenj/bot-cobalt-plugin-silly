@@ -1,5 +1,5 @@
 package Cobalt::Plugin::Silly::LOLCAT;
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 use POE::Filter::Stackable;
 use POE::Filter::Line;
@@ -39,7 +39,8 @@ sub Bot_public_cmd_lolcat {
   my $context = ${ $_[0] };
   my $msg     = ${ $_[1] };
 
-  my $str = decode_irc( $msg->{message} );
+  my @message = @{$msg->{message_array}};
+  my $str = decode_irc( join ' ', @message[1 .. $#message] );
   $str ||= "Can I have a line to parse?";
 
   my $filter = $self->{Filter};
@@ -52,7 +53,7 @@ sub Bot_public_cmd_lolcat {
   $core->send_event( 'send_message',
     $context,
     $channel,
-    $cat
+    'LOLCAT: '.$cat
   ) if $cat;  
   
   return PLUGIN_EAT_ALL
