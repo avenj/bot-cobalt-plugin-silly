@@ -18,13 +18,13 @@ provides:
     version: 0.09
   Cobalt::Plugin::Silly::AutoOpAll:
     file: lib/Cobalt/Plugin/Silly/AutoOpAll.pm
-    version: 0.01
+    version: 0.02
   Cobalt::Plugin::Silly::DailyFail:
     file: lib/Cobalt/Plugin/Silly/DailyFail.pm
     version: 0.02
   Cobalt::Plugin::Silly::LOLCAT:
     file: lib/Cobalt/Plugin/Silly/LOLCAT.pm
-    version: 0.01
+    version: 0.02
   Cobalt::Plugin::Silly::MstOMatic:
     file: lib/Cobalt/Plugin/Silly/MstOMatic.pm
     version: 0.01
