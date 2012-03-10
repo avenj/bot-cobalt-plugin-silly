@@ -49,15 +49,19 @@
       },
       "Cobalt::Plugin::Silly::LOLCAT" : {
          "file" : "lib/Cobalt/Plugin/Silly/LOLCAT.pm",
-         "version" : "0.02"
+         "version" : "0.03"
       },
       "Cobalt::Plugin::Silly::MstOMatic" : {
          "file" : "lib/Cobalt/Plugin/Silly/MstOMatic.pm",
          "version" : "0.01"
       },
+      "Cobalt::Plugin::Silly::OutputLOLCAT" : {
+         "file" : "lib/Cobalt/Plugin/Silly/OutputLOLCAT.pm",
+         "version" : "0.01"
+      },
       "Cobalt::Plugin::Silly::Reverse" : {
          "file" : "lib/Cobalt/Plugin/Silly/Reverse.pm",
-         "version" : "0.01"
+         "version" : "0.02"
       },
       "Cobalt::Plugin::Silly::Rot13" : {
          "file" : "lib/Cobalt/Plugin/Silly/Rot13.pm",

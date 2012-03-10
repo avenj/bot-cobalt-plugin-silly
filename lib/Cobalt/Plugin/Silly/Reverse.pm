@@ -1,5 +1,5 @@
 package Cobalt::Plugin::Silly::Reverse;
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 use Object::Pluggable::Constants qw/ :ALL /;
 
@@ -31,7 +31,7 @@ sub Bot_public_cmd_reverse {
   my @message = @{$msg->{message_array}};
   my $str = join ' ', @message;
 
-  my $reverse = join '', reverse(split //, $str);
+  my $reverse = scalar reverse $str;
 
   my $channel = $msg->{channel};
   $core->send_event( 'send_message',
