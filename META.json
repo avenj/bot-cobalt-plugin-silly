@@ -22,6 +22,7 @@
       "runtime" : {
          "requires" : {
             "Acme::Daily::Fail" : 0,
+            "Acme::LeetSpeak" : 0,
             "Cobalt::Common" : 0,
             "Cobalt::Core" : 0,
             "Cobalt::Serializer" : 0,
@@ -37,7 +38,7 @@
    "provides" : {
       "Cobalt::Plugin::Silly" : {
          "file" : "lib/Cobalt/Plugin/Silly.pm",
-         "version" : "0.101"
+         "version" : "0.102"
       },
       "Cobalt::Plugin::Silly::AutoOpAll" : {
          "file" : "lib/Cobalt/Plugin/Silly/AutoOpAll.pm",
@@ -59,6 +60,10 @@
          "file" : "lib/Cobalt/Plugin/Silly/OutputLOLCAT.pm",
          "version" : "0.01"
       },
+      "Cobalt::Plugin::Silly::OutputLeet" : {
+         "file" : "lib/Cobalt/Plugin/Silly/OutputLeet.pm",
+         "version" : "0.01"
+      },
       "Cobalt::Plugin::Silly::Reverse" : {
          "file" : "lib/Cobalt/Plugin/Silly/Reverse.pm",
          "version" : "0.02"
@@ -78,5 +83,5 @@
          "http://dev.perl.org/licenses/"
       ]
    },
-   "version" : "0.101"
+   "version" : "0.102"
 }

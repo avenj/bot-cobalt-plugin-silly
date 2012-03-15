@@ -4,6 +4,7 @@ lib/Cobalt/Plugin/Silly/AutoOpAll.pm
 lib/Cobalt/Plugin/Silly/DailyFail.pm
 lib/Cobalt/Plugin/Silly/LOLCAT.pm
 lib/Cobalt/Plugin/Silly/OutputLOLCAT.pm
+lib/Cobalt/Plugin/Silly/OutputLeet.pm
 lib/Cobalt/Plugin/Silly/MstOMatic.pm
 lib/Cobalt/Plugin/Silly/Reverse.pm
 lib/Cobalt/Plugin/Silly/Rot13.pm

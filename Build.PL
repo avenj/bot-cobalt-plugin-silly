@@ -26,6 +26,7 @@ my $build = Module::Build->new(
     'POE::Filter::LOLCAT'    => 0,    
 
     'Acme::Daily::Fail'  => 0,
+    'Acme::LeetSpeak'    => 0,
 
     'XML::Simple' => 0,
   },

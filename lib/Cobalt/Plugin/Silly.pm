@@ -1,5 +1,5 @@
 package Cobalt::Plugin::Silly;
-our $VERSION = '0.101';
+our $VERSION = '0.102';
 
 sub new { die __PACKAGE__" is just a placeholder." }
 
@@ -38,6 +38,11 @@ Bridge <POE::Filter::LOLCAT>
 
 L<Cobalt::Plugin::Silly::OutputLOLCAT> 
 LOLCAT-enabled output filter
+
+=item *
+
+L<Cobalt::Plugin::Silly::OutputLeet>
+Leetspeak output filter
 
 =item *
 
