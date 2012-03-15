@@ -41,6 +41,11 @@ LOLCAT-enabled output filter
 
 =item *
 
+L<Cobalt::Plugin::Silly::OutputAngryGerman>
+Loud German output filter
+
+=item *
+
 L<Cobalt::Plugin::Silly::OutputLeet>
 Leetspeak output filter
 

@@ -19,6 +19,8 @@ my $build = Module::Build->new(
     'Cobalt::Serializer' => 0,
     'Cobalt::Common'     => 0,
     
+    'Lingua::Translate'  => 0,
+    
     'Object::Pluggable::Constants' => 0,
 
     'POE::Filter::Stackable' => 0,
