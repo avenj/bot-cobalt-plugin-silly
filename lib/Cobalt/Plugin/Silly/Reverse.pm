@@ -1,6 +1,10 @@
 package Cobalt::Plugin::Silly::Reverse;
 our $VERSION = '0.02';
 
+use 5.12.1;
+use strict;
+use warnings;
+
 use Object::Pluggable::Constants qw/ :ALL /;
 
 sub new { bless {}, shift }

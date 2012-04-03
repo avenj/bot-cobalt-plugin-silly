@@ -1,6 +1,8 @@
 package Cobalt::Plugin::Silly::DailyFail;
 our $VERSION = '0.02';
 
+use 5.12.1;
+
 use Acme::Daily::Fail qw/get_headline/;
 
 use Cobalt::Common;

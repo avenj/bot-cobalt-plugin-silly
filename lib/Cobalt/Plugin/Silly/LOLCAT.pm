@@ -1,6 +1,8 @@
 package Cobalt::Plugin::Silly::LOLCAT;
 our $VERSION = '0.03';
 
+use 5.12.1;
+
 use POE::Filter::Stackable;
 use POE::Filter::Line;
 use POE::Filter::LOLCAT;

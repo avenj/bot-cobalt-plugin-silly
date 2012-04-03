@@ -1,6 +1,8 @@
 package Cobalt::Plugin::Silly::ThreatLevel;
 our $VERSION = '0.02';
 
+use 5.12.1;
+
 use Cobalt::Common;
 
 use URI::Escape;

@@ -1,6 +1,8 @@
 package Cobalt::Plugin::Silly::OutputLeet;
 our $VERSION = '0.01';
 
+use 5.12.1;
+
 use Acme::LeetSpeak;
 
 use Cobalt::Common;

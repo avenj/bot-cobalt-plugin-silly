@@ -3,6 +3,8 @@ our $VERSION = '0.01';
 
 ## borrowed from Acme::LAUTER::DEUTSCHER
 
+use 5.12.1;
+
 use Lingua::Translate;
 
 use Cobalt::Common;

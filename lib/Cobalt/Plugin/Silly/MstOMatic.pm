@@ -1,6 +1,8 @@
 package Cobalt::Plugin::Silly::MstOMatic;
 our $VERSION = '0.01';
 
+use 5.12.1;
+
 use Cobalt::Common;
 
 use URI::Escape;
