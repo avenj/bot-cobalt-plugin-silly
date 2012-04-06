@@ -26,6 +26,7 @@
             "Cobalt::Common" : 0,
             "Cobalt::Core" : 0,
             "Cobalt::Serializer" : 0,
+            "Lingua::Translate" : 0,
             "Object::Pluggable::Constants" : 0,
             "POE::Filter::LOLCAT" : 0,
             "POE::Filter::Line" : 0,
@@ -54,6 +55,10 @@
       },
       "Cobalt::Plugin::Silly::MstOMatic" : {
          "file" : "lib/Cobalt/Plugin/Silly/MstOMatic.pm",
+         "version" : "0.01"
+      },
+      "Cobalt::Plugin::Silly::OutputAngryGerman" : {
+         "file" : "lib/Cobalt/Plugin/Silly/OutputAngryGerman.pm",
          "version" : "0.01"
       },
       "Cobalt::Plugin::Silly::OutputLOLCAT" : {

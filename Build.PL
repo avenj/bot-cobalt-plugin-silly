@@ -12,6 +12,8 @@ my $build = Module::Build->new(
   
   create_makefile_pl => 'small',
   
+  create_readme => 1,
+  
   requires => {
     'perl' => '5.12.1',
 

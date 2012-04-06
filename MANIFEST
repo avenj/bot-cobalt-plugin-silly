@@ -15,3 +15,4 @@ MANIFEST			This list of files
 META.json
 META.yml
 t/01_loadable.t
+README
