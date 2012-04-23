@@ -1,7 +1,7 @@
 package Cobalt::Plugin::Silly::DailyFail;
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
-use 5.12.1;
+use 5.10.1;
 
 use Acme::Daily::Fail qw/get_headline/;
 
@@ -30,12 +30,12 @@ sub Bot_public_cmd_dailyfail { Bot_public_cmd_headline(@_) }
 sub Bot_public_cmd_headline {
   my ($self, $core) = splice @_, 0, 2;
 
-  my $context = ${ $_[0] };
-  my $msg     = ${ $_[1] };
+  my $msg     = ${ $_[0] };
+  my $context = $msg->context;
 
   my $resp = get_headline();
 
-  my $channel = $msg->{channel};
+  my $channel = $msg->channel;
   $core->send_event( 'send_message',
     $context,
     $channel,

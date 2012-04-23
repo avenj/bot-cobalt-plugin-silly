@@ -1,7 +1,7 @@
 package Cobalt::Plugin::Silly::Rot13;
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
-use 5.12.1;
+use 5.10.1;
 use strict;
 use warnings;
 use Object::Pluggable::Constants qw/ :ALL /;
@@ -28,15 +28,15 @@ sub Cobalt_unregister {
 sub Bot_public_cmd_rot13 {
   my ($self, $core) = splice @_, 0, 2;
 
-  my $context = ${ $_[0] };
-  my $msg     = ${ $_[1] };
+  my $msg     = ${ $_[0] };
+  my $context = $msg->context;
 
-  my @message = @{$msg->{message_array}};
+  my @message = @{ $msg->message_array };
   my $str = join ' ', @message;
 
   $str =~ tr/a-zA-Z/n-za-mN-ZA-M/;
 
-  my $channel = $msg->{channel};
+  my $channel = $msg->channel;
   $core->send_event( 'send_message',
     $context,
     $channel,

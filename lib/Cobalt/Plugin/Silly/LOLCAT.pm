@@ -1,7 +1,7 @@
 package Cobalt::Plugin::Silly::LOLCAT;
-our $VERSION = '0.03';
+our $VERSION = '0.04';
 
-use 5.12.1;
+use 5.10.1;
 
 use POE::Filter::Stackable;
 use POE::Filter::Line;
@@ -38,11 +38,10 @@ sub Cobalt_unregister {
 sub Bot_public_cmd_lolcat {
   my ($self, $core) = splice @_, 0, 2;
 
-  my $context = ${ $_[0] };
-  my $msg     = ${ $_[1] };
+  my $msg     = ${ $_[0] };
+  my $context = $msg->context;
 
-  my @message = @{$msg->{message_array}};
-  my $str = decode_irc( join ' ', @{$msg->{message_array}} );
+  my $str = decode_irc( join ' ', @{ $msg->message_array } );
   $str ||= "Can I have a line to parse?";
 
   my $filter = $self->{Filter};

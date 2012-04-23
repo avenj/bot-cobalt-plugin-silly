@@ -1,7 +1,7 @@
 package Cobalt::Plugin::Silly::ThreatLevel;
 our $VERSION = '0.02';
 
-use 5.12.1;
+use 5.10.1;
 
 use Cobalt::Common;
 
@@ -35,10 +35,9 @@ sub Cobalt_unregister {
 sub Bot_public_cmd_alertlevel { Bot_public_cmd_terrorism(@_) }
 sub Bot_public_cmd_terrorism {
   my ($self, $core) = splice @_, 0, 2;
-  my $context = ${ $_[0] };
-  my $msg     = ${ $_[1] };
-  
-  my $channel = $msg->{channel};
+  my $msg     = ${ $_[0] };
+  my $context = $msg->context;
+  my $channel = $msg->channel;
 
   if ( $self->{Cached}->{Time}
     && (time - $self->{Cached}->{Time}) < 600

@@ -1,7 +1,7 @@
 package Cobalt::Plugin::Silly::AutoOpAll;
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
-use 5.12.1;
+use 5.10.1;
 use strict;
 use warnings;
 
@@ -33,13 +33,13 @@ sub Cobalt_unregister {
 
 sub Bot_public_cmd_aopall {
   my ($self, $core) = splice @_, 0, 2;
-  my $context = ${ $_[0] };
-  my $msg = ${ $_[1] };
+  my $msg = ${ $_[0] };
+  my $context = $msg->context;
 
   ## !aopall #chan
   ## !aopall -#chan
 
-  my $nick = $msg->{src_nick};
+  my $nick = $msg->src_nick;
   
   my $lev = $core->auth_level($context, $nick);
   return PLUGIN_EAT_ALL unless $lev >= 3;
@@ -47,7 +47,7 @@ sub Bot_public_cmd_aopall {
   my $casemap = $core->Servers->{$context}->{CaseMap}
                 // 'rfc1459';
 
-  my $chan = $msg->{message_array}->[0];
+  my $chan = $msg->message_array->[0];
   $chan = lc_irc($chan, $casemap);
 
   unless ( index($chan, '-') == 0 ) {

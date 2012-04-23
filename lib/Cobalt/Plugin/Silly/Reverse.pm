@@ -1,7 +1,7 @@
 package Cobalt::Plugin::Silly::Reverse;
 our $VERSION = '0.02';
 
-use 5.12.1;
+use 5.10.1;
 use strict;
 use warnings;
 
@@ -29,15 +29,13 @@ sub Cobalt_unregister {
 sub Bot_public_cmd_reverse {
   my ($self, $core) = splice @_, 0, 2;
 
-  my $context = ${ $_[0] };
-  my $msg     = ${ $_[1] };
+  my $msg     = ${ $_[0] };
+  my $context = $msg->context;
 
-  my @message = @{$msg->{message_array}};
-  my $str = join ' ', @message;
-
+  my $str = join ' ', @{ $msg->message_array };
   my $reverse = scalar reverse $str;
 
-  my $channel = $msg->{channel};
+  my $channel = $msg->channel;
   $core->send_event( 'send_message',
     $context,
     $channel,

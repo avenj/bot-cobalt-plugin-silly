@@ -1,7 +1,7 @@
 package Cobalt::Plugin::Silly::MstOMatic;
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
-use 5.12.1;
+use 5.10.1;
 
 use Cobalt::Common;
 
@@ -34,13 +34,10 @@ sub Cobalt_unregister {
 sub Bot_public_cmd_mstomatic { Bot_public_cmd_mst(@_) }
 sub Bot_public_cmd_mst {
   my ($self, $core) = splice @_, 0, 2;
-  my $context = ${ $_[0] };
-  my $msg     = ${ $_[1] };
-  
-  my $channel = $msg->{channel};
-
+  my $msg     = ${ $_[0] };
+  my $context = $msg->context;
+  my $channel = $msg->channel;
   $self->_request_mst( $context, $channel);
-  
   return PLUGIN_EAT_ALL
 }
 

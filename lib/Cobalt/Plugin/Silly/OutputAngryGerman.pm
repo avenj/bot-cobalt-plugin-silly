@@ -1,9 +1,9 @@
 package Cobalt::Plugin::Silly::OutputAngryGerman;
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 ## borrowed from Acme::LAUTER::DEUTSCHER
 
-use 5.12.1;
+use 5.10.1;
 
 use Lingua::Translate;
 
