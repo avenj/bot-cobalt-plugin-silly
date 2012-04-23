@@ -1,5 +1,5 @@
 package Cobalt::Plugin::Silly::AutoOpAll;
-our $VERSION = '0.03';
+our $VERSION = '0.04';
 
 use 5.10.1;
 use strict;
@@ -77,13 +77,12 @@ sub Bot_public_cmd_aopall {
 
 sub Bot_user_joined {
   my ($self, $core) = splice @_, 0, 2;
-  my $context = ${ $_[0] };
-  my $joined  = ${ $_[1] };
-  my $chan = $joined->{channel};
-  my $nick = $joined->{src_nick};
+  my $joined  = ${ $_[0] };
+  my $context = $joined->context;
+  my $chan = $joined->channel;
+  my $nick = $joined->src_nick;
 
-  my $casemap = $core->Servers->{$context}->{CaseMap}
-                // 'rfc1459';
+  my $casemap = $core->get_irc_casemap($context) || 'rfc1459' ;
 
   $chan = lc_irc($chan, $casemap);
 

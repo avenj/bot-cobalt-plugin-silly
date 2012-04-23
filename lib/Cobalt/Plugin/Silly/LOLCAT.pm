@@ -50,7 +50,7 @@ sub Bot_public_cmd_lolcat {
   my $cat = shift @$lol;
   chomp($cat);
 
-  my $channel = $msg->{channel};
+  my $channel = $msg->channel;
   $core->send_event( 'send_message',
     $context,
     $channel,
