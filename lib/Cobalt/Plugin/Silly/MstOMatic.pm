@@ -84,20 +84,11 @@ sub _request_mst {
       [ $context, $channel ],
     );
   } else {
-    require LWP::UserAgent;
-    my $ua = LWP::UserAgent->new(
-      timeout => 3,
-      max_redirect => 0,
-      agent => 'cobalt2',
-    );
-    my $resp = $ua->get($uri);
-    $core->send_event( 'mstomatic_resp_recv', 
-      $resp->content || undef,
-      $resp, 
-      [ $context, $channel ] 
+    $core->send_event( 'send_message',
+      $context, $channel,
+      "No async HTTP found, try loading Cobalt::Plugin::WWW"
     );
   }
-  return 1
 }
 
 1;
