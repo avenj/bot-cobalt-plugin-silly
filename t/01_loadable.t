@@ -11,7 +11,7 @@ my @modules = qw/
   ThreatLevel
 /;
 
-my $prefix = "Cobalt::Plugin::Silly::";
+my $prefix = "Bot::Cobalt::Plugin::Silly::";
 
 for my $mod (@modules) {
   my $module = $prefix.$mod;

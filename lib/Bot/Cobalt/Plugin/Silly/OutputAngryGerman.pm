@@ -1,4 +1,4 @@
-package Cobalt::Plugin::Silly::OutputAngryGerman;
+package Bot::Cobalt::Plugin::Silly::OutputAngryGerman;
 our $VERSION = '0.02';
 
 ## borrowed from Acme::LAUTER::DEUTSCHER
@@ -7,7 +7,7 @@ use 5.10.1;
 
 use Lingua::Translate;
 
-use Cobalt::Common;
+use Bot::Cobalt::Common;
 
 sub new { bless {}, shift }
 
@@ -51,11 +51,11 @@ __END__
 
 =head1 NAME
 
-Cobalt::Plugin::Silly::OutputAngryGerman
+Bot::Cobalt::Plugin::Silly::OutputAngryGerman
 
 =head1 SYNOPSIS
 
-  !plugin load OutputGerman Cobalt::Plugin::Silly::OutputAngryGerman
+  !plugin load OutputGerman Bot::Cobalt::Plugin::Silly::OutputAngryGerman
 
 =head1 DESCRIPTION
 

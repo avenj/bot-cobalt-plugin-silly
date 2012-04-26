@@ -1,13 +1,12 @@
-package Cobalt::Plugin::Silly::ThreatLevel;
+package Bot::Cobalt::Plugin::Silly::MstOMatic;
 our $VERSION = '0.02';
 
 use 5.10.1;
 
-use Cobalt::Common;
+use Bot::Cobalt::Common;
 
 use URI::Escape;
 use HTTP::Request;
-use XML::Simple;
 
 sub new { bless {}, shift }
 
@@ -16,13 +15,13 @@ sub Cobalt_register {
   $self->{core} = $core;
   $core->plugin_register( $self, 'SERVER',
     [
-      'public_cmd_terrorism',
-      'public_cmd_alertlevel',
-      'terrorlev_resp_recv',
+      'public_cmd_mst',
+      'public_cmd_mstomatic',
+      'mstomatic_resp_recv',
     ],
   );
-  $self->{Cached} = {};
   $core->log->info("$VERSION loaded");
+
   return PLUGIN_EAT_NONE 
 }
 
@@ -32,32 +31,18 @@ sub Cobalt_unregister {
   return PLUGIN_EAT_NONE
 }
 
-sub Bot_public_cmd_alertlevel { Bot_public_cmd_terrorism(@_) }
-sub Bot_public_cmd_terrorism {
+sub Bot_public_cmd_mstomatic { Bot_public_cmd_mst(@_) }
+sub Bot_public_cmd_mst {
   my ($self, $core) = splice @_, 0, 2;
   my $msg     = ${ $_[0] };
   my $context = $msg->context;
   my $channel = $msg->channel;
-
-  if ( $self->{Cached}->{Time}
-    && (time - $self->{Cached}->{Time}) < 600
-  ) {
-    my $threatlev = $self->{Cached}->{Level};
-    my $str = "DHS terror threat level: $threatlev";
-    $core->send_event( 'send_message',
-      $context,
-      $channel,
-      $str
-    );
-  } else {
-    $self->_request( $context, $channel);
-  }
-  
+  $self->_request_mst( $context, $channel);
   return PLUGIN_EAT_ALL
 }
 
 
-sub Bot_terrorlev_resp_recv {
+sub Bot_mstomatic_resp_recv {
   my ($self, $core) = splice @_, 0, 2;
   my $response = ${ $_[1] };
   my $args     = ${ $_[2] };
@@ -70,44 +55,38 @@ sub Bot_terrorlev_resp_recv {
     return PLUGIN_EAT_ALL
   }
 
-  my $threat;
+  my $mst_rant;
   my $content = $response->content;
-  my $threatstr;
-  my $xmlref = eval { XMLin($content) };
-  if ($@) {
-    $threatstr = "XML parsing error!";
+  if ( $content =~ /<h1><a.*>(.*)<\/a><\/h1>/i ) {
+    $mst_rant = "MST: $1";
   } else {
-    my $threatlev = $xmlref->{CONDITION} // "XML parse error";
-    $threatstr = "DHS terror threat level: $threatlev";
-    $self->{Cached} = {
-      Level => $threatlev,
-      Time  => time(),
-    };
+    $mst_rant = "Unable to parse a mst rant!";
   }
   
   $core->send_event( 'send_message', $context, $channel,
-    $threatstr
+    $mst_rant
   );
   
   return PLUGIN_EAT_ALL
 }
 
-sub _request {
+sub _request_mst {
   my ($self, $context, $channel) = @_;
   my $core = $self->{core};
 
-  my $uri = 'http://www.dhs.gov/dhspublic/getAdvisoryCondition';
+  my $uri = 'http://www.trout.me.uk/cgi-bin/mstomatic.cgi';
   
   if ($core->Provided->{www_request}) {
     my $req = HTTP::Request->new( 'GET', $uri ) || return undef;
     $core->send_event( 'www_request',
       $req,
-      'terrorlev_resp_recv',
+      'mstomatic_resp_recv',
       [ $context, $channel ],
     );
   } else {
-    $core->send_event( 'send_message', $context, $channel,
-      "No async HTTP found, try loading Cobalt::Plugin::WWW"
+    $core->send_event( 'send_message',
+      $context, $channel,
+      "No async HTTP found, try loading Bot::Cobalt::Plugin::WWW"
     );
   }
 }
@@ -119,17 +98,19 @@ __END__
 
 =head1 NAME
 
-Cobalt::Plugin::Extras::ThreatLevel - get the DHS terrorism threat level
+Bot::Cobalt::Plugin::Extras::MstOMatic - Matt S. Trout ranting on demand!
 
 =head1 USAGE
 
-  !terrorism
+  !mst
+  !mstomatic
 
 =head1 DESCRIPTION
 
-Assists in advising as to when to duct tape your house shut.
+Uses L<http://www.trout.me.uk/cgi-bin/mstomatic.cgi> to deliver Matthew S. 
+Trout rants whenever you might need them.
 
-Uses http://www.dhs.gov/dhspublic/getAdvisoryCondition
+... MST can feel free to slap me, it's okay.
 
 =head1 AUTHOR
 

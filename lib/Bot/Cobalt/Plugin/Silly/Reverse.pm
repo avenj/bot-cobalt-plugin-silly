@@ -1,4 +1,4 @@
-package Cobalt::Plugin::Silly::Reverse;
+package Bot::Cobalt::Plugin::Silly::Reverse;
 our $VERSION = '0.02';
 
 use 5.10.1;
@@ -51,11 +51,11 @@ __END__
 
 =head1 NAME
 
-Cobalt::Plugin::Silly::Reverse
+Bot::Cobalt::Plugin::Silly::Reverse
 
 =head1 SYNOPSIS
 
-  !plugin load Reverse Cobalt::Plugin::Silly::Reverse
+  !plugin load Reverse Bot::Cobalt::Plugin::Silly::Reverse
   !reverse some string
 
 =head1 DESCRIPTION

@@ -1,10 +1,11 @@
-package Cobalt::Plugin::Silly::Rot13;
-our $VERSION = '0.02';
+package Bot::Cobalt::Plugin::Silly::DailyFail;
+our $VERSION = '0.03';
 
 use 5.10.1;
-use strict;
-use warnings;
-use Object::Pluggable::Constants qw/ :ALL /;
+
+use Acme::Daily::Fail qw/get_headline/;
+
+use Bot::Cobalt::Common;
 
 sub new { bless {}, shift }
 
@@ -12,7 +13,7 @@ sub Cobalt_register {
   my ($self, $core) = splice @_, 0, 2;
   
   $core->plugin_register( $self, 'SERVER',
-    [ 'public_cmd_rot13' ]  
+    [ 'public_cmd_headline', 'public_cmd_dailyfail' ]  
   );
   
   $core->log->info("$VERSION loaded");
@@ -25,23 +26,21 @@ sub Cobalt_unregister {
   return PLUGIN_EAT_NONE
 }
 
-sub Bot_public_cmd_rot13 {
+sub Bot_public_cmd_dailyfail { Bot_public_cmd_headline(@_) }
+sub Bot_public_cmd_headline {
   my ($self, $core) = splice @_, 0, 2;
 
   my $msg     = ${ $_[0] };
   my $context = $msg->context;
 
-  my @message = @{ $msg->message_array };
-  my $str = join ' ', @message;
-
-  $str =~ tr/a-zA-Z/n-za-mN-ZA-M/;
+  my $resp = get_headline();
 
   my $channel = $msg->channel;
   $core->send_event( 'send_message',
     $context,
     $channel,
-    "rot13: ".$str
-  );  
+    "BREAKING: ".$resp
+  ) if $resp;
   
   return PLUGIN_EAT_ALL
 }
@@ -52,19 +51,24 @@ __END__
 
 =head1 NAME
 
-Cobalt::Plugin::Silly::Ro13
+Bot::Cobalt::Plugin::Silly::DailyFail - get silly headlines
 
 =head1 SYNOPSIS
 
-  !plugin load Rot13 Cobalt::Plugin::Silly::Rot13
-  !rot13 some text
+  !plugin load DailyFail Bot::Cobalt::Plugin::Silly::DailyFail
+  !headline
+  !dailyfail
 
 =head1 DESCRIPTION
 
-Rotate every character of a string 13 positions.
+A simple bridge to L<Acme::Daily::Fail>.
+
+Produces random newspaper headlines.
 
 =head1 AUTHOR
 
 Jon Portnoy <avenj@cobaltirc.org>
+
+L<http://www.cobaltirc.org>
 
 =cut

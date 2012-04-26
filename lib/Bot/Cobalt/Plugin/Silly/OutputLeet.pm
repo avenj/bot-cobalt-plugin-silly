@@ -1,11 +1,11 @@
-package Cobalt::Plugin::Silly::OutputLeet;
+package Bot::Cobalt::Plugin::Silly::OutputLeet;
 our $VERSION = '0.02';
 
 use 5.10.1;
 
 use Acme::LeetSpeak;
 
-use Cobalt::Common;
+use Bot::Cobalt::Common;
 
 sub new { bless {}, shift }
 
@@ -41,11 +41,11 @@ __END__
 
 =head1 NAME
 
-Cobalt::Plugin::Silly::OutputLeet
+Bot::Cobalt::Plugin::Silly::OutputLeet
 
 =head1 SYNOPSIS
 
-  !plugin load OutputLeet Cobalt::Plugin::Silly::OutputLeet
+  !plugin load OutputLeet Bot::Cobalt::Plugin::Silly::OutputLeet
 
 =head1 DESCRIPTION
 

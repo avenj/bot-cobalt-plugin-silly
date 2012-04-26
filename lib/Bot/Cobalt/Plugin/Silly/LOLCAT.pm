@@ -1,4 +1,4 @@
-package Cobalt::Plugin::Silly::LOLCAT;
+package Bot::Cobalt::Plugin::Silly::LOLCAT;
 our $VERSION = '0.04';
 
 use 5.10.1;
@@ -7,7 +7,7 @@ use POE::Filter::Stackable;
 use POE::Filter::Line;
 use POE::Filter::LOLCAT;
 
-use Cobalt::Common;
+use Bot::Cobalt::Common;
 
 sub new { bless {}, shift }
 
@@ -66,11 +66,11 @@ __END__
 
 =head1 NAME
 
-Cobalt::Plugin::Silly::LOLCAT
+Bot::Cobalt::Plugin::Silly::LOLCAT
 
 =head1 SYNOPSIS
 
-  !plugin load LOLCAT Cobalt::Plugin::Silly::LOLCAT
+  !plugin load LOLCAT Bot::Cobalt::Plugin::Silly::LOLCAT
   !lolcat some text here
 
 =head1 DESCRIPTION

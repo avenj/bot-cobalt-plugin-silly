@@ -1,4 +1,4 @@
-package Cobalt::Plugin::Silly::AutoOpAll;
+package Bot::Cobalt::Plugin::Silly::AutoOpAll;
 our $VERSION = '0.04';
 
 use 5.10.1;
@@ -100,11 +100,11 @@ __END__
 
 =head1 NAME
 
-Cobalt::Plugin::Silly::AutoOpAll - op all users on a channel
+Bot::Cobalt::Plugin::Silly::AutoOpAll - AutoOp everyone
 
 =head1 SYNOPSIS
 
-  !plugin load AOPAll Cobalt::Plugin::Silly::AutoOpAll
+  !plugin load AOPAll Bot::Cobalt::Plugin::Silly::AutoOpAll
   !aopall #mychan
 
 The !aopall command equires at least access level 3.
