@@ -41,7 +41,7 @@ sub Bot_public_cmd_aopall {
 
   my $nick = $msg->src_nick;
   
-  my $lev = $core->auth_level($context, $nick);
+  my $lev = $core->auth->level($context, $nick);
   return PLUGIN_EAT_ALL unless $lev >= 3;
 
   my $casemap = $core->Servers->{$context}->{CaseMap}
