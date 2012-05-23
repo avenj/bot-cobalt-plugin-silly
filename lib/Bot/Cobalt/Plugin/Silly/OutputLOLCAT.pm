@@ -58,7 +58,7 @@ __END__
 
 =head1 NAME
 
-Bot::Cobalt::Plugin::Silly::OutputLOLCAT
+Bot::Cobalt::Plugin::Silly::OutputLOLCAT - LOLCAT output filter
 
 =head1 SYNOPSIS
 
@@ -67,8 +67,6 @@ Bot::Cobalt::Plugin::Silly::OutputLOLCAT
 =head1 DESCRIPTION
 
 Turns all of your bot's message output into lolcats.
-
-Probably not a great idea, but it's Plugin::Silly.
 
 A simple bridge to L<POE::Filter::LOLCAT> (which in turn uses 
 L<Acme::LOLCAT>).

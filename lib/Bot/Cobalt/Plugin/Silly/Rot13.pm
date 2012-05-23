@@ -56,7 +56,7 @@ __END__
 
 =head1 NAME
 
-Bot::Cobalt::Plugin::Silly::Ro13
+Bot::Cobalt::Plugin::Silly::Ro13 - Rot13-encode a string
 
 =head1 SYNOPSIS
 

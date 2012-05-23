@@ -55,7 +55,7 @@ __END__
 
 =head1 NAME
 
-Bot::Cobalt::Plugin::Silly::Reverse
+Bot::Cobalt::Plugin::Silly::Reverse - Reverse a string
 
 =head1 SYNOPSIS
 

@@ -55,7 +55,7 @@ __END__
 
 =head1 NAME
 
-Bot::Cobalt::Plugin::Silly::DailyFail - get silly headlines
+Bot::Cobalt::Plugin::Silly::DailyFail - Get silly headlines
 
 =head1 SYNOPSIS
 
@@ -65,7 +65,9 @@ Bot::Cobalt::Plugin::Silly::DailyFail - get silly headlines
 
 =head1 DESCRIPTION
 
-A simple bridge to L<Acme::Daily::Fail>.
+A L<Bot::Cobalt> plugin.
+
+Simple bridge to L<Acme::Daily::Fail>.
 
 Produces random newspaper headlines.
 

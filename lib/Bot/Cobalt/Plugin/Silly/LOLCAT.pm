@@ -70,7 +70,7 @@ __END__
 
 =head1 NAME
 
-Bot::Cobalt::Plugin::Silly::LOLCAT
+Bot::Cobalt::Plugin::Silly::LOLCAT - Translate to LOLCAT
 
 =head1 SYNOPSIS
 
@@ -79,7 +79,9 @@ Bot::Cobalt::Plugin::Silly::LOLCAT
 
 =head1 DESCRIPTION
 
-A simple bridge to L<POE::Filter::LOLCAT> (which in turn uses 
+A L<Bot::Cobalt> plugin.
+
+Simple bridge to L<POE::Filter::LOLCAT> (which in turn uses 
 L<Acme::LOLCAT>).
 
 =head1 AUTHOR

@@ -115,6 +115,8 @@ The !aopall command equires at least access level 3.
 
 =head1 DESCRIPTION
 
+A L<Bot::Cobalt> plugin.
+
 Totally silly plugin to automatically op every user joining a channel 
 specified via '!aopall' (assuming the bot is opped, of course).
 

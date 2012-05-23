@@ -102,7 +102,7 @@ __END__
 
 =head1 NAME
 
-Bot::Cobalt::Plugin::Extras::MstOMatic - Matt S. Trout ranting on demand!
+Bot::Cobalt::Plugin::Extras::MstOMatic - Matt S. Trout ranting on demand.
 
 =head1 USAGE
 
@@ -111,10 +111,12 @@ Bot::Cobalt::Plugin::Extras::MstOMatic - Matt S. Trout ranting on demand!
 
 =head1 DESCRIPTION
 
+A L<Bot::Cobalt> plugin.
+
 Uses L<http://www.trout.me.uk/cgi-bin/mstomatic.cgi> to deliver Matthew S. 
 Trout rants whenever you might need them.
 
-... MST can feel free to slap me, it's okay.
+... MST can feel free to slap me.
 
 =head1 AUTHOR
 

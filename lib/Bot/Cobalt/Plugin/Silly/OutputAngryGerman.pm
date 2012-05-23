@@ -55,7 +55,7 @@ __END__
 
 =head1 NAME
 
-Bot::Cobalt::Plugin::Silly::OutputAngryGerman
+Bot::Cobalt::Plugin::Silly::OutputAngryGerman - Output filter
 
 =head1 SYNOPSIS
 
@@ -67,7 +67,8 @@ Makes your bot sound like a loud German fellow via L<Lingua::Translate>.
 
 Conceptually borrowed from L<Acme::LAUTER::DEUTSCHER>.
 
-Pretty much guaranteed to make your output slow.
+(Pretty much guaranteed to make your bot's output dog-slow, too. Try to 
+be nice to the translator services.)
 
 =head1 AUTHOR
 

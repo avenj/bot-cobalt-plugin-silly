@@ -123,7 +123,7 @@ __END__
 
 =head1 NAME
 
-Bot::Cobalt::Plugin::Extras::ThreatLevel - get the DHS terrorism threat level
+Bot::Cobalt::Plugin::Extras::ThreatLevel - DHS terror threat level
 
 =head1 USAGE
 
