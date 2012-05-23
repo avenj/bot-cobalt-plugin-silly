@@ -1,9 +1,13 @@
 package Bot::Cobalt::Plugin::Silly::OutputAngryGerman;
-our $VERSION = '0.02';
+our $VERSION;
+BEGIN {
+  require Bot::Cobalt::Plugin::Silly;
+  $VERSION = $Bot::Cobalt::Plugin::Silly::VERSION;
+}
 
 ## borrowed from Acme::LAUTER::DEUTSCHER
 
-use 5.10.1;
+use 5.12.1;
 
 use Lingua::Translate;
 

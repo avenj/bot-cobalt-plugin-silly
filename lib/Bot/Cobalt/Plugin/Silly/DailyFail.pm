@@ -1,7 +1,11 @@
 package Bot::Cobalt::Plugin::Silly::DailyFail;
-our $VERSION = '0.03';
+our $VERSION;
+BEGIN {
+  require Bot::Cobalt::Plugin::Silly;
+  $VERSION = $Bot::Cobalt::Plugin::Silly::VERSION;
+}
 
-use 5.10.1;
+use 5.12.1;
 
 use Acme::Daily::Fail qw/get_headline/;
 
