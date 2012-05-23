@@ -131,6 +131,8 @@ Bot::Cobalt::Plugin::Extras::ThreatLevel - DHS terror threat level
 
 =head1 DESCRIPTION
 
+A L<Bot::Cobalt> plugin.
+
 Assists in advising as to when to duct tape your house shut.
 
 Uses http://www.dhs.gov/dhspublic/getAdvisoryCondition

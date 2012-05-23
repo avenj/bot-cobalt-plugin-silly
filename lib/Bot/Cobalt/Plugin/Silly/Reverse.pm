@@ -64,9 +64,9 @@ Bot::Cobalt::Plugin::Silly::Reverse - Reverse a string
 
 =head1 DESCRIPTION
 
-Reverse some text.
+A L<Bot::Cobalt> plugin.
 
-Why? Well, it's in Cobalt-Plugin-Silly, that's why.
+Reverse some text.
 
 =head1 AUTHOR
 

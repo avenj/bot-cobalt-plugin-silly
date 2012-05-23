@@ -53,6 +53,8 @@ Bot::Cobalt::Plugin::Silly::OutputLeet
 
 =head1 DESCRIPTION
 
+A L<Bot::Cobalt> plugin.
+
 Turns all of your bot's message output into l33tspeak.
 
 Uses L<Acme::LeetSpeak>.

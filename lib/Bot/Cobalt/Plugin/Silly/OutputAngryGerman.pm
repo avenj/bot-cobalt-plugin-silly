@@ -63,6 +63,8 @@ Bot::Cobalt::Plugin::Silly::OutputAngryGerman - Output filter
 
 =head1 DESCRIPTION
 
+A L<Bot::Cobalt> plugin.
+
 Makes your bot sound like a loud German fellow via L<Lingua::Translate>.
 
 Conceptually borrowed from L<Acme::LAUTER::DEUTSCHER>.

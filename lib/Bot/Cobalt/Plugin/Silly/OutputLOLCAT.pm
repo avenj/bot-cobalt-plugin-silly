@@ -66,6 +66,8 @@ Bot::Cobalt::Plugin::Silly::OutputLOLCAT - LOLCAT output filter
 
 =head1 DESCRIPTION
 
+A L<Bot::Cobalt> plugin.
+
 Turns all of your bot's message output into lolcats.
 
 A simple bridge to L<POE::Filter::LOLCAT> (which in turn uses 

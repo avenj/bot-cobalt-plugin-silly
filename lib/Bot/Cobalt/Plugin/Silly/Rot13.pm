@@ -65,6 +65,8 @@ Bot::Cobalt::Plugin::Silly::Ro13 - Rot13-encode a string
 
 =head1 DESCRIPTION
 
+A L<Bot::Cobalt> plugin.
+
 Rotate every character of a string 13 positions.
 
 =head1 AUTHOR

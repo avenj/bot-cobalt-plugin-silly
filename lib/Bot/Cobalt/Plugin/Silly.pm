@@ -1,5 +1,5 @@
 package Bot::Cobalt::Plugin::Silly;
-our $VERSION = '0.001';
+our $VERSION = '0.002_01';
 
 sub new { die __PACKAGE__." is just a placeholder. See POD." }
 
@@ -16,6 +16,11 @@ Bot::Cobalt::Plugin::Silly - Silly Bot::Cobalt plugins
 
 A collection of completely silly L<Bot::Cobalt> plugins; these can be 
 add to your C<plugins.conf> to do very useless stuff.
+
+In fact, most of them don't even do useless stuff on their own, but 
+rather bridge other stuff that does useless stuff.
+
+For an added bonus, they're all hastily-written, too!
 
 =over
 
