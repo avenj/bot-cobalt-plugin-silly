@@ -13,21 +13,17 @@ use POE::Filter::LOLCAT;
 
 use Bot::Cobalt::Common;
 
-sub new { bless {}, shift }
+sub FILTER () { 0 }
+
+sub new { bless [undef], shift }
 
 sub Cobalt_register {
   my ($self, $core) = splice @_, 0, 2;
   
   $core->plugin_register( $self, 'SERVER',
-    [ 'public_cmd_lolcat' ]  
+    'public_cmd_lolcat'
   );
 
-  $self->{Filter} = POE::Filter::Stackable->new(
-    Filters => [
-      POE::Filter::Line->new(),
-      POE::Filter::LOLCAT->new(),
-    ],
-  );
   
   $core->log->info("$VERSION loaded");
   return PLUGIN_EAT_NONE
@@ -48,9 +44,17 @@ sub Bot_public_cmd_lolcat {
   my $str = decode_irc( join ' ', @{ $msg->message_array } );
   $str ||= "Can I have a line to parse?";
 
-  my $filter = $self->{Filter};
+  my $filter = $self->[FILTER] //= POE::Filter::Stackable->new(
+    Filters => [
+        POE::Filter::Line->new(),
+        POE::Filter::LOLCAT->new(),
+    ],
+  );
+
   $filter->get_one_start([$str."\n"]);
+
   my $lol = $filter->get_one;
+
   my $cat = shift @$lol;
   chomp($cat);
 

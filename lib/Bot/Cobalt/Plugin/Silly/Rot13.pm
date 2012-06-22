@@ -10,22 +10,25 @@ use strict;
 use warnings;
 use Object::Pluggable::Constants qw/ :ALL /;
 
-sub new { bless {}, shift }
+sub new { bless [], shift }
 
 sub Cobalt_register {
   my ($self, $core) = splice @_, 0, 2;
   
   $core->plugin_register( $self, 'SERVER',
-    [ 'public_cmd_rot13' ]  
+    'public_cmd_rot13'
   );
   
   $core->log->info("$VERSION loaded");
+
   return PLUGIN_EAT_NONE
 }
 
 sub Cobalt_unregister {
   my ($self, $core) = splice @_, 0, 2;
+
   $core->log->info("Unloaded");
+
   return PLUGIN_EAT_NONE
 }
 
@@ -41,6 +44,7 @@ sub Bot_public_cmd_rot13 {
   $str =~ tr/a-zA-Z/n-za-mN-ZA-M/;
 
   my $channel = $msg->channel;
+
   $core->send_event( 'send_message',
     $context,
     $channel,

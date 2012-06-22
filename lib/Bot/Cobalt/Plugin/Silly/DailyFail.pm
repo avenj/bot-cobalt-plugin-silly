@@ -11,7 +11,7 @@ use Acme::Daily::Fail qw/get_headline/;
 
 use Bot::Cobalt::Common;
 
-sub new { bless {}, shift }
+sub new { bless [], shift }
 
 sub Cobalt_register {
   my ($self, $core) = splice @_, 0, 2;

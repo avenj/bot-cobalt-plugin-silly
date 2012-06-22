@@ -7,6 +7,7 @@ BEGIN {
 
 use 5.12.1;
 
+use Bot::Cobalt;
 use Bot::Cobalt::Common;
 
 use URI::Escape;
@@ -17,22 +18,25 @@ sub new { bless {}, shift }
 
 sub Cobalt_register {
   my ($self, $core) = splice @_, 0, 2;
-  $self->{core} = $core;
-  $core->plugin_register( $self, 'SERVER',
-    [
-      'public_cmd_terrorism',
-      'public_cmd_alertlevel',
-      'terrorlev_resp_recv',
-    ],
+
+  register( $self, 'SERVER',
+    'public_cmd_terrorism',
+    'public_cmd_alertlevel',
+    'terrorlev_resp_recv',
   );
+
   $self->{Cached} = {};
+
   $core->log->info("$VERSION loaded");
+
   return PLUGIN_EAT_NONE 
 }
 
 sub Cobalt_unregister {
   my ($self, $core) = splice @_, 0, 2;
+
   $core->log->info("Unloaded");
+
   return PLUGIN_EAT_NONE
 }
 
@@ -48,6 +52,7 @@ sub Bot_public_cmd_terrorism {
   ) {
     my $threatlev = $self->{Cached}->{Level};
     my $str = "DHS terror threat level: $threatlev";
+
     $core->send_event( 'send_message',
       $context,
       $channel,
@@ -74,15 +79,18 @@ sub Bot_terrorlev_resp_recv {
     return PLUGIN_EAT_ALL
   }
 
-  my $threat;
-  my $content = $response->content;
   my $threatstr;
+
+  my $content = $response->content;
+
   my $xmlref = eval { XMLin($content) };
   if ($@) {
     $threatstr = "XML parsing error!";
   } else {
     my $threatlev = $xmlref->{CONDITION} // "XML parse error";
+
     $threatstr = "DHS terror threat level: $threatlev";
+
     $self->{Cached} = {
       Level => $threatlev,
       Time  => time(),
@@ -103,17 +111,21 @@ sub _request {
   my $uri = 'http://www.dhs.gov/dhspublic/getAdvisoryCondition';
   
   if ($core->Provided->{www_request}) {
-    my $req = HTTP::Request->new( 'GET', $uri ) || return undef;
+    my $req = HTTP::Request->new('GET', $uri);
+
     $core->send_event( 'www_request',
       $req,
       'terrorlev_resp_recv',
       [ $context, $channel ],
     );
+
   } else {
     $core->send_event( 'send_message', $context, $channel,
       "No async HTTP found, try loading Bot::Cobalt::Plugin::WWW"
     );
   }
+  
+  return 1
 }
 
 1;

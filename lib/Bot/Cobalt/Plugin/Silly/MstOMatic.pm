@@ -7,42 +7,47 @@ BEGIN {
 
 use 5.12.1;
 
+use Bot::Cobalt;
 use Bot::Cobalt::Common;
 
 use URI::Escape;
 use HTTP::Request;
 
-sub new { bless {}, shift }
+sub new { bless [], shift }
 
 sub Cobalt_register {
   my ($self, $core) = splice @_, 0, 2;
-  $self->{core} = $core;
-  $core->plugin_register( $self, 'SERVER',
-    [
-      'public_cmd_mst',
-      'public_cmd_mstomatic',
-      'mstomatic_resp_recv',
-    ],
-  );
-  $core->log->info("$VERSION loaded");
 
-  return PLUGIN_EAT_NONE 
+  register( $self, 'SERVER',
+    'public_cmd_mst',
+    'public_cmd_mstomatic',
+    'mstomatic_resp_recv',
+  );
+  
+  logger->info("$VERSION loaded");
+
+  PLUGIN_EAT_NONE 
 }
 
 sub Cobalt_unregister {
   my ($self, $core) = splice @_, 0, 2;
-  $core->log->info("Unloaded");
-  return PLUGIN_EAT_NONE
+  
+  logger->info("Unloaded");
+  
+  PLUGIN_EAT_NONE
 }
 
 sub Bot_public_cmd_mstomatic { Bot_public_cmd_mst(@_) }
 sub Bot_public_cmd_mst {
   my ($self, $core) = splice @_, 0, 2;
   my $msg     = ${ $_[0] };
+
   my $context = $msg->context;
   my $channel = $msg->channel;
+  
   $self->_request_mst( $context, $channel);
-  return PLUGIN_EAT_ALL
+  
+  PLUGIN_EAT_ALL
 }
 
 
@@ -53,7 +58,7 @@ sub Bot_mstomatic_resp_recv {
   my ($context, $channel) = @$args;
   
   unless ($response->is_success) {
-    $core->send_event( 'send_message', $context, $channel,
+    broadcast( 'send_message', $context, $channel,
       "HTTP failed: ".$response->code
     );
     return PLUGIN_EAT_ALL
@@ -67,7 +72,7 @@ sub Bot_mstomatic_resp_recv {
     $mst_rant = "Unable to parse a mst rant!";
   }
   
-  $core->send_event( 'send_message', $context, $channel,
+  broadcast( 'send_message', $context, $channel,
     $mst_rant
   );
   
@@ -76,19 +81,19 @@ sub Bot_mstomatic_resp_recv {
 
 sub _request_mst {
   my ($self, $context, $channel) = @_;
-  my $core = $self->{core};
 
   my $uri = 'http://www.trout.me.uk/cgi-bin/mstomatic.cgi';
   
-  if ($core->Provided->{www_request}) {
+  if (core()->Provided->{www_request}) {
     my $req = HTTP::Request->new( 'GET', $uri ) || return undef;
-    $core->send_event( 'www_request',
+
+    broadcast( 'www_request',
       $req,
       'mstomatic_resp_recv',
       [ $context, $channel ],
     );
   } else {
-    $core->send_event( 'send_message',
+    broadcast( 'send_message',
       $context, $channel,
       "No async HTTP found, try loading Bot::Cobalt::Plugin::WWW"
     );
@@ -121,7 +126,5 @@ Trout rants whenever you might need them.
 =head1 AUTHOR
 
 Jon Portnoy <avenj@cobaltirc.org>
-
-L<http://www.cobaltirc.org>
 
 =cut

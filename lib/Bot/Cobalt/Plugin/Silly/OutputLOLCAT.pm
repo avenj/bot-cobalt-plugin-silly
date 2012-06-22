@@ -13,43 +13,50 @@ use POE::Filter::LOLCAT;
 
 use Bot::Cobalt::Common;
 
-sub new { bless {}, shift }
+sub FILTER () { 0 }
+
+sub new { bless [undef], shift }
 
 sub Cobalt_register {
   my ($self, $core) = splice @_, 0, 2;
   
   $core->plugin_register( $self, 'USER',
-    [ 'message' ]  
-  );
-
-  $self->{Filter} = POE::Filter::Stackable->new(
-    Filters => [
-      POE::Filter::Line->new(),
-      POE::Filter::LOLCAT->new(),
-    ],
+    'message'
   );
   
   $core->log->info("$VERSION loaded");
-  return PLUGIN_EAT_NONE
+  
+  PLUGIN_EAT_NONE
 }
 
 sub Cobalt_unregister {
   my ($self, $core) = splice @_, 0, 2;
+  
   $core->log->info("Unloaded");
-  return PLUGIN_EAT_NONE
+  
+  PLUGIN_EAT_NONE
 }
 
 sub Outgoing_message {
   my ($self, $core) = splice @_, 0, 2;
 
-  my $filter = $self->{Filter};
+  my $filter = $self->[FILTER] //= POE::Filter::Stackable->new(
+    Filters => [
+      POE::Filter::Line->new(),
+      POE::Filter::LOLCAT->new(),
+    ],
+  );
+
   $filter->get_one_start([${$_[2]}."\n"]);
+
   my $lol = $filter->get_one;
+
   my $cat = shift @$lol;
   chomp($cat);
+
   ${$_[2]} = $cat;
 
-  return PLUGIN_EAT_NONE
+  PLUGIN_EAT_NONE
 }
 
 1;

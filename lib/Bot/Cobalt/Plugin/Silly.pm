@@ -37,7 +37,7 @@ Enlightening newspaper headlines; bridges L<Acme::Daily::Fail>
 =item *
 
 L<Bot::Cobalt::Plugin::Silly::LOLCAT>
-Bridge <POE::Filter::LOLCAT> to translate text into LOLCAT
+Bridge L<POE::Filter::LOLCAT> to translate text into LOLCAT
 
 =item *
 

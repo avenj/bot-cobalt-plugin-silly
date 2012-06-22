@@ -11,32 +11,34 @@ use Acme::LeetSpeak;
 
 use Bot::Cobalt::Common;
 
-sub new { bless {}, shift }
+sub new { bless [], shift }
 
 sub Cobalt_register {
   my ($self, $core) = splice @_, 0, 2;
   
   $core->plugin_register( $self, 'USER',
-    [ 'message' ]  
+    'message'
   );
 
   $core->log->info("$VERSION loaded");
+  
   return PLUGIN_EAT_NONE
 }
 
 sub Cobalt_unregister {
   my ($self, $core) = splice @_, 0, 2;
+  
   $core->log->info("Unloaded");
-  return PLUGIN_EAT_NONE
+  
+  PLUGIN_EAT_NONE
 }
 
 sub Outgoing_message {
   my ($self, $core) = splice @_, 0, 2;
 
-  my $leet = leet(${$_[2]});
-  ${$_[2]} = $leet;
+  ${$_[2]} = leet(${$_[2]});
 
-  return PLUGIN_EAT_NONE
+  PLUGIN_EAT_NONE
 }
 
 1;

@@ -13,40 +13,48 @@ use Lingua::Translate;
 
 use Bot::Cobalt::Common;
 
-sub new { bless {}, shift }
+sub TRANS () { 0 }
+
+sub new { bless [], shift }
 
 sub Cobalt_register {
   my ($self, $core) = splice @_, 0, 2;
   
-  $core->plugin_register( $self, 'USER',
-    [ 'message' ]  
-  );
-  
-  $self->{trans} = Lingua::Translate->new(
-    src  => 'en',
-    dest => 'de',
+  register( $self, 'USER',
+    'message'
   );
 
-  $core->log->info("$VERSION loaded");
+  logger->info("$VERSION loaded");
+  
   return PLUGIN_EAT_NONE
 }
 
 sub Cobalt_unregister {
   my ($self, $core) = splice @_, 0, 2;
-  $core->log->info("Unloaded");
-  return PLUGIN_EAT_NONE
+  
+  logger->info("Unloaded");
+  
+  PLUGIN_EAT_NONE
 }
 
 sub Outgoing_message {
   my ($self, $core) = splice @_, 0, 2;
 
   my $txt = ${$_[2]};
+
   return PLUGIN_EAT_NONE if $txt !~ /\w/;
-  $txt = uc($self->{trans}->translate($txt));
+
+  my $trans = $self->[TRANS] //= Lingua::Translate->new(
+    src  => 'en',
+    dest => 'de',
+  );
+
+  $txt = uc($trans->translate($txt));
   $txt =~ s/ (?<=\w) \. (?=\W|\Z) /!/gsx;
+
   ${$_[2]} = $txt;
 
-  return PLUGIN_EAT_NONE
+  PLUGIN_EAT_NONE
 }
 
 1;
