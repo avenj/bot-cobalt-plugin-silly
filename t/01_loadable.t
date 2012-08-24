@@ -8,7 +8,6 @@ my @modules = qw/
   MstOMatic
   Reverse
   Rot13
-  ThreatLevel
 /;
 
 my $prefix = "Bot::Cobalt::Plugin::Silly::";

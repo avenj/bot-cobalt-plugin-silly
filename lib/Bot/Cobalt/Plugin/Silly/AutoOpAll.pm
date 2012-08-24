@@ -18,19 +18,22 @@ sub new { bless {}, shift }
 sub Cobalt_register {
   my ($self, $core) = splice @_, 0, 2;
   $self->{AOPChans} = {};
-  $core->plugin_register( $self, 'SERVER',
-    [
+
+  $ore->plugin_register( $self, 'SERVER',
       'user_joined',
       'public_cmd_aopall',
-    ],
   );
+
   $core->log->info("Loaded ($VERSION)");
+
   return PLUGIN_EAT_NONE
 }
 
 sub Cobalt_unregister {
   my ($self, $core) = splice @_, 0, 2;
+
   $core->log->info("Unloaded");
+
   return PLUGIN_EAT_NONE
 }
 
@@ -56,20 +59,22 @@ sub Bot_public_cmd_aopall {
 
   unless ( index($chan, '-') == 0 ) {
     $self->{AOPChans}->{$context}->{$chan} = 1;
-    $core->send_event( 'send_notice',
+    $core->send_event( 'notice',
       $context,
       $nick,
       "AutoOpping all on $chan",
     );
   } else {
     $chan = substr($chan, 1);
+
     my $resp;
     if (delete $self->{AOPChans}->{$context}->{$chan}) {
       $resp = "Not autoopping on $chan";
     } else {
       $resp = "No such chan ($chan) found";
     }
-    $core->send_event( 'send_notice',
+
+    $core->send_event( 'notice',
       $context,
       $nick,
       $resp
@@ -82,7 +87,9 @@ sub Bot_public_cmd_aopall {
 sub Bot_user_joined {
   my ($self, $core) = splice @_, 0, 2;
   my $joined  = ${ $_[0] };
+
   my $context = $joined->context;
+
   my $chan = $joined->channel;
   my $nick = $joined->src_nick;
 

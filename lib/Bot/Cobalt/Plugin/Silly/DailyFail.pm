@@ -17,16 +17,19 @@ sub Cobalt_register {
   my ($self, $core) = splice @_, 0, 2;
   
   $core->plugin_register( $self, 'SERVER',
-    [ 'public_cmd_headline', 'public_cmd_dailyfail' ]  
+    'public_cmd_headline', 'public_cmd_dailyfail'
   );
   
   $core->log->info("$VERSION loaded");
+
   return PLUGIN_EAT_NONE
 }
 
 sub Cobalt_unregister {
   my ($self, $core) = splice @_, 0, 2;
+
   $core->log->info("Unloaded");
+
   return PLUGIN_EAT_NONE
 }
 
@@ -40,6 +43,7 @@ sub Bot_public_cmd_headline {
   my $resp = get_headline();
 
   my $channel = $msg->channel;
+
   $core->send_event( 'send_message',
     $context,
     $channel,

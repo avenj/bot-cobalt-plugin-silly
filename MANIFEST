@@ -10,7 +10,6 @@ lib/Bot/Cobalt/Plugin/Silly/OutputAngryGerman.pm
 lib/Bot/Cobalt/Plugin/Silly/MstOMatic.pm
 lib/Bot/Cobalt/Plugin/Silly/Reverse.pm
 lib/Bot/Cobalt/Plugin/Silly/Rot13.pm
-lib/Bot/Cobalt/Plugin/Silly/ThreatLevel.pm
 Makefile.PL
 MANIFEST			This list of files
 META.json
