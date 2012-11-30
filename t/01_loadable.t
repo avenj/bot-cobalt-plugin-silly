@@ -5,7 +5,6 @@ my @modules = qw/
   DailyFail
   LOLCAT
   OutputLOLCAT
-  MstOMatic
   Reverse
   Rot13
 /;

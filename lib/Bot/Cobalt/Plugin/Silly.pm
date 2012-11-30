@@ -56,11 +56,6 @@ Leetspeak output filter (bridges L<Acme::LeetSpeak>)
 
 =item *
 
-L<Bot::Cobalt::Plugin::Silly::MstOMatic>
-Get Matt S. Trout rants on demand. (In appreciation for bringing us 
-L<Moo>, of course)
-
-=item *
 
 L<Bot::Cobalt::Plugin::Silly::Reverse>
 Reverse a string.
