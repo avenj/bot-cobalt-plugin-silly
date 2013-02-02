@@ -2,12 +2,11 @@ Build.PL
 Changes
 lib/Bot/Cobalt/Plugin/Silly.pm
 lib/Bot/Cobalt/Plugin/Silly/AutoOpAll.pm
+lib/Bot/Cobalt/Plugin/Silly/BoneEasy.pm
 lib/Bot/Cobalt/Plugin/Silly/DailyFail.pm
 lib/Bot/Cobalt/Plugin/Silly/LOLCAT.pm
 lib/Bot/Cobalt/Plugin/Silly/OutputLOLCAT.pm
 lib/Bot/Cobalt/Plugin/Silly/OutputLeet.pm
-lib/Bot/Cobalt/Plugin/Silly/OutputAngryGerman.pm
-lib/Bot/Cobalt/Plugin/Silly/MstOMatic.pm
 lib/Bot/Cobalt/Plugin/Silly/Reverse.pm
 lib/Bot/Cobalt/Plugin/Silly/Rot13.pm
 Makefile.PL

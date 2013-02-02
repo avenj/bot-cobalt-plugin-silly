@@ -19,7 +19,7 @@ sub Cobalt_register {
   my ($self, $core) = splice @_, 0, 2;
   $self->{AOPChans} = {};
 
-  $ore->plugin_register( $self, 'SERVER',
+  $core->plugin_register( $self, 'SERVER',
       'user_joined',
       'public_cmd_aopall',
   );

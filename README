@@ -1,0 +1,54 @@
+NAME
+    Bot::Cobalt::Plugin::Silly - Silly Bot::Cobalt plugins
+
+DESCRIPTION
+    A collection of completely silly Bot::Cobalt plugins; these can be add
+    to your `plugins.conf' to do very useless stuff.
+
+    In fact, most of them don't even do useless stuff on their own, but
+    rather bridge other stuff that does useless stuff.
+
+    For an added bonus, they're all hastily-written, too!
+
+    *   Bot::Cobalt::Plugin::Silly::AutoOpAll AutoOp *all* users that join a
+        channel.
+
+    *   Bot::Cobalt::Plugin::Silly::DailyFail Enlightening newspaper
+        headlines; bridges Acme::Daily::Fail
+
+    *   Bot::Cobalt::Plugin::Silly::LOLCAT Bridge <POE::Filter::LOLCAT> to
+        translate text into LOLCAT
+
+    *   Bot::Cobalt::Plugin::Silly::OutputLOLCAT LOLCAT-enabled bot output
+        filter
+
+    *   Bot::Cobalt::Plugin::Silly::OutputAngryGerman Loud German output
+        filter (similar to Acme::LAUTER::DEUTSCHER)
+
+    *   Bot::Cobalt::Plugin::Silly::OutputLeet Leetspeak output filter
+        (bridges Acme::LeetSpeak)
+
+    *   Bot::Cobalt::Plugin::Silly::MstOMatic Get Matt S. Trout rants on
+        demand. (In appreciation for bringing us Moo, of course)
+
+    *   Bot::Cobalt::Plugin::Silly::Reverse Reverse a string.
+
+    *   Bot::Cobalt::Plugin::Silly::Rot13 Rot13 a string.
+
+    *   Bot::Cobalt::Plugin::Silly::ThreatLevel Get the current DHS terror
+        alert level, so you know when to duct tape your house shut.
+
+CONTRIBUTING
+    I'd be happy to review contributed Silly plugins to potentially add more
+    uselessness to this distribution.
+
+    Send them off to <avenj@cobaltirc.org>, please.
+
+    The only real requirement is that they not do much of anything anyone
+    might find productive.
+
+AUTHOR
+    Jon Portnoy <avenj@cobaltirc.org>
+
+    http://www.cobaltirc.org
+

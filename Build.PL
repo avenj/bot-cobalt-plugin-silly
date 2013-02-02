@@ -20,8 +20,8 @@ my $build = Module::Build->new(
     'Bot::Cobalt::Core'       => 0,
     'Bot::Cobalt::Serializer' => 0,
     'Bot::Cobalt::Common'     => 0,
-    
-    'Lingua::Translate'  => 0,
+
+    'Bone::Easy'              => 0,
     
     'Object::Pluggable::Constants' => 0,
 

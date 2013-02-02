@@ -1,5 +1,5 @@
 package Bot::Cobalt::Plugin::Silly;
-our $VERSION = '0.002_01';
+our $VERSION = '0.03';
 
 sub new { die __PACKAGE__." is just a placeholder. See POD." }
 
@@ -31,6 +31,11 @@ AutoOp *all* users that join a channel.
 
 =item *
 
+L<Bot::Cobalt::Plugin::Silly::BoneEasy>
+Generate pickup lines from L<Bone::Easy>
+
+=item *
+
 L<Bot::Cobalt::Plugin::Silly::DailyFail>
 Enlightening newspaper headlines; bridges L<Acme::Daily::Fail>
 
@@ -43,11 +48,6 @@ Bridge L<POE::Filter::LOLCAT> to translate text into LOLCAT
 
 L<Bot::Cobalt::Plugin::Silly::OutputLOLCAT> 
 LOLCAT-enabled bot output filter
-
-=item *
-
-L<Bot::Cobalt::Plugin::Silly::OutputAngryGerman>
-Loud German output filter (similar to L<Acme::LAUTER::DEUTSCHER>)
 
 =item *
 
@@ -64,12 +64,6 @@ Reverse a string.
 
 L<Bot::Cobalt::Plugin::Silly::Rot13>
 Rot13 a string.
-
-=item *
-
-L<Bot::Cobalt::Plugin::Silly::ThreatLevel>
-Get the current DHS terror alert level, so you know when to duct tape 
-your house shut.
 
 =back
 
