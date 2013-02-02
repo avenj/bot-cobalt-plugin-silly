@@ -4,7 +4,7 @@
       "Jon Portnoy <avenj@cobaltirc.org>"
    ],
    "dynamic_config" : 1,
-   "generated_by" : "Module::Build version 0.38, CPAN::Meta::Converter version 2.120921",
+   "generated_by" : "Module::Build version 0.4003, CPAN::Meta::Converter version 2.120921",
    "license" : [
       "perl_5"
    ],
@@ -16,17 +16,17 @@
    "prereqs" : {
       "configure" : {
          "requires" : {
-            "Module::Build" : "0.38"
+            "Module::Build" : "0.40"
          }
       },
       "runtime" : {
          "requires" : {
             "Acme::Daily::Fail" : "0",
             "Acme::LeetSpeak" : "0",
+            "Bone::Easy" : "0",
             "Bot::Cobalt::Common" : "0",
             "Bot::Cobalt::Core" : "0",
             "Bot::Cobalt::Serializer" : "0",
-            "Lingua::Translate" : "0",
             "Object::Pluggable::Constants" : "0",
             "POE::Filter::LOLCAT" : "0",
             "POE::Filter::Line" : "0",
@@ -39,47 +39,39 @@
    "provides" : {
       "Bot::Cobalt::Plugin::Silly" : {
          "file" : "lib/Bot/Cobalt/Plugin/Silly.pm",
-         "version" : "0.001"
+         "version" : "0.02"
       },
       "Bot::Cobalt::Plugin::Silly::AutoOpAll" : {
          "file" : "lib/Bot/Cobalt/Plugin/Silly/AutoOpAll.pm",
-         "version" : "0"
+         "version" : 0
+      },
+      "Bot::Cobalt::Plugin::Silly::BoneEasy" : {
+         "file" : "lib/Bot/Cobalt/Plugin/Silly/BoneEasy.pm",
+         "version" : 0
       },
       "Bot::Cobalt::Plugin::Silly::DailyFail" : {
          "file" : "lib/Bot/Cobalt/Plugin/Silly/DailyFail.pm",
-         "version" : "0"
+         "version" : 0
       },
       "Bot::Cobalt::Plugin::Silly::LOLCAT" : {
          "file" : "lib/Bot/Cobalt/Plugin/Silly/LOLCAT.pm",
-         "version" : "0"
-      },
-      "Bot::Cobalt::Plugin::Silly::MstOMatic" : {
-         "file" : "lib/Bot/Cobalt/Plugin/Silly/MstOMatic.pm",
-         "version" : "0"
-      },
-      "Bot::Cobalt::Plugin::Silly::OutputAngryGerman" : {
-         "file" : "lib/Bot/Cobalt/Plugin/Silly/OutputAngryGerman.pm",
-         "version" : "0"
+         "version" : 0
       },
       "Bot::Cobalt::Plugin::Silly::OutputLOLCAT" : {
          "file" : "lib/Bot/Cobalt/Plugin/Silly/OutputLOLCAT.pm",
-         "version" : "0"
+         "version" : 0
       },
       "Bot::Cobalt::Plugin::Silly::OutputLeet" : {
          "file" : "lib/Bot/Cobalt/Plugin/Silly/OutputLeet.pm",
-         "version" : "0"
+         "version" : 0
       },
       "Bot::Cobalt::Plugin::Silly::Reverse" : {
          "file" : "lib/Bot/Cobalt/Plugin/Silly/Reverse.pm",
-         "version" : "0"
+         "version" : 0
       },
       "Bot::Cobalt::Plugin::Silly::Rot13" : {
          "file" : "lib/Bot/Cobalt/Plugin/Silly/Rot13.pm",
-         "version" : "0"
-      },
-      "Bot::Cobalt::Plugin::Silly::ThreatLevel" : {
-         "file" : "lib/Bot/Cobalt/Plugin/Silly/ThreatLevel.pm",
-         "version" : "0"
+         "version" : 0
       }
    },
    "release_status" : "stable",
@@ -88,5 +80,5 @@
          "http://dev.perl.org/licenses/"
       ]
    },
-   "version" : "0.001"
+   "version" : "0.02"
 }

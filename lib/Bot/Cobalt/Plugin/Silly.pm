@@ -1,5 +1,5 @@
 package Bot::Cobalt::Plugin::Silly;
-our $VERSION = '0.03';
+our $VERSION = '0.02';
 
 sub new { die __PACKAGE__." is just a placeholder. See POD." }
 

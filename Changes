@@ -1,4 +1,9 @@
 ## Changes for Bot::Cobalt::Plugin::Silly
 
+ * 0.02
+   Kill ThreatLevel, webservice seems to be gone.
+   Add Bone::Easy bridge.
+   Cleanups.
+
  * 0.001
    Initial release
