@@ -1,9 +1,5 @@
 package Bot::Cobalt::Plugin::Silly::LOLCAT;
-our $VERSION;
-BEGIN {
-  require Bot::Cobalt::Plugin::Silly;
-  $VERSION = $Bot::Cobalt::Plugin::Silly::VERSION;
-}
+
 
 use 5.12.1;
 
@@ -25,7 +21,7 @@ sub Cobalt_register {
   );
 
   
-  $core->log->info("$VERSION loaded");
+  $core->log->info("Loaded");
   return PLUGIN_EAT_NONE
 }
 

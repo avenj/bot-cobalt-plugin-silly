@@ -1,9 +1,4 @@
 package Bot::Cobalt::Plugin::Silly::AutoOpAll;
-our $VERSION;
-BEGIN {
-  require Bot::Cobalt::Plugin::Silly;
-  $VERSION = $Bot::Cobalt::Plugin::Silly::VERSION;
-}
 
 use 5.12.1;
 use strict;
@@ -24,7 +19,7 @@ sub Cobalt_register {
       'public_cmd_aopall',
   );
 
-  $core->log->info("Loaded ($VERSION)");
+  $core->log->info("Loaded");
 
   return PLUGIN_EAT_NONE
 }

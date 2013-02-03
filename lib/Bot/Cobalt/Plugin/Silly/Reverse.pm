@@ -1,9 +1,5 @@
 package Bot::Cobalt::Plugin::Silly::Reverse;
-our $VERSION;
-BEGIN {
-  require Bot::Cobalt::Plugin::Silly;
-  $VERSION = $Bot::Cobalt::Plugin::Silly::VERSION;
-}
+
 
 use 5.12.1;
 use strict;
@@ -20,7 +16,7 @@ sub Cobalt_register {
     'public_cmd_reverse'
   );
   
-  $core->log->info("$VERSION loaded");
+  $core->log->info("Loaded");
 
   return PLUGIN_EAT_NONE
 }
