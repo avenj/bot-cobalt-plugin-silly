@@ -1,9 +1,8 @@
 package Bot::Cobalt::Plugin::Silly::DailyFail;
 
+use strictures 2;
 
-use 5.12.1;
-
-use Acme::Daily::Fail qw/get_headline/;
+use Acme::Daily::Fail 'get_headline';
 
 use Bot::Cobalt::Common;
 

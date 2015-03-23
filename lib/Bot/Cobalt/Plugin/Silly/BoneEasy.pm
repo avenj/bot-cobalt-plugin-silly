@@ -1,7 +1,7 @@
 package Bot::Cobalt::Plugin::Silly::BoneEasy;
 
+use strictures 2;
 
-use 5.12.1;
 use Bot::Cobalt::Common;
 
 use Bone::Easy;

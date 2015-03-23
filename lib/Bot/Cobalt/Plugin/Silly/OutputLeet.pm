@@ -1,9 +1,8 @@
 package Bot::Cobalt::Plugin::Silly::OutputLeet;
 
-use 5.12.1;
+use strictures 2;
 
 use Acme::LeetSpeak;
-
 use Bot::Cobalt::Common;
 
 sub new { bless [], shift }

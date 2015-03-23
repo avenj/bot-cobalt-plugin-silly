@@ -1,12 +1,10 @@
 package Bot::Cobalt::Plugin::Silly::AutoOpAll;
 
-use 5.12.1;
-use strict;
-use warnings;
+use strictures 2;
 
 use Object::Pluggable::Constants qw/ :ALL /;
 
-use IRC::Utils qw/lc_irc/;
+use IRC::Utils 'lc_irc';
 
 sub new { bless {}, shift }
 

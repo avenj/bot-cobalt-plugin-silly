@@ -1,7 +1,6 @@
 package Bot::Cobalt::Plugin::Silly::LOLCAT;
 
-
-use 5.12.1;
+use strictures 2;
 
 use POE::Filter::Stackable;
 use POE::Filter::Line;
