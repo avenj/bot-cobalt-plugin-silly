@@ -4,7 +4,7 @@ Bot::Cobalt::Plugin::Silly - Silly Bot::Cobalt plugins
 
 # DESCRIPTION
 
-A collection of completely silly [Bot::Cobalt](http://search.cpan.org/perldoc?Bot::Cobalt) plugins; these can be 
+A collection of completely silly [Bot::Cobalt](https://metacpan.org/pod/Bot::Cobalt) plugins; these can be 
 add to your `plugins.conf` to do very useless stuff.
 
 In fact, most of them don't even do useless stuff on their own, but 
@@ -12,22 +12,21 @@ rather bridge other stuff that does useless stuff.
 
 For an added bonus, they're all hastily-written, too!
 
-- [Bot::Cobalt::Plugin::Silly::AutoOpAll](http://search.cpan.org/perldoc?Bot::Cobalt::Plugin::Silly::AutoOpAll)
+- [Bot::Cobalt::Plugin::Silly::AutoOpAll](https://metacpan.org/pod/Bot::Cobalt::Plugin::Silly::AutoOpAll)
 AutoOp \*all\* users that join a channel.
-- [Bot::Cobalt::Plugin::Silly::BoneEasy](http://search.cpan.org/perldoc?Bot::Cobalt::Plugin::Silly::BoneEasy)
-Generate pickup lines from [Bone::Easy](http://search.cpan.org/perldoc?Bone::Easy)
-- [Bot::Cobalt::Plugin::Silly::DailyFail](http://search.cpan.org/perldoc?Bot::Cobalt::Plugin::Silly::DailyFail)
-Enlightening newspaper headlines; bridges [Acme::Daily::Fail](http://search.cpan.org/perldoc?Acme::Daily::Fail)
-- [Bot::Cobalt::Plugin::Silly::LOLCAT](http://search.cpan.org/perldoc?Bot::Cobalt::Plugin::Silly::LOLCAT)
-Bridge [POE::Filter::LOLCAT](http://search.cpan.org/perldoc?POE::Filter::LOLCAT) to translate text into LOLCAT
-- [Bot::Cobalt::Plugin::Silly::OutputLOLCAT](http://search.cpan.org/perldoc?Bot::Cobalt::Plugin::Silly::OutputLOLCAT) 
+- [Bot::Cobalt::Plugin::Silly::BoneEasy](https://metacpan.org/pod/Bot::Cobalt::Plugin::Silly::BoneEasy)
+Generate pickup lines from [Bone::Easy](https://metacpan.org/pod/Bone::Easy)
+- [Bot::Cobalt::Plugin::Silly::DailyFail](https://metacpan.org/pod/Bot::Cobalt::Plugin::Silly::DailyFail)
+Enlightening newspaper headlines; bridges [Acme::Daily::Fail](https://metacpan.org/pod/Acme::Daily::Fail)
+- [Bot::Cobalt::Plugin::Silly::LOLCAT](https://metacpan.org/pod/Bot::Cobalt::Plugin::Silly::LOLCAT)
+Bridge [POE::Filter::LOLCAT](https://metacpan.org/pod/POE::Filter::LOLCAT) to translate text into LOLCAT
+- [Bot::Cobalt::Plugin::Silly::OutputLOLCAT](https://metacpan.org/pod/Bot::Cobalt::Plugin::Silly::OutputLOLCAT) 
 LOLCAT-enabled bot output filter
-- [Bot::Cobalt::Plugin::Silly::OutputLeet](http://search.cpan.org/perldoc?Bot::Cobalt::Plugin::Silly::OutputLeet)
-Leetspeak output filter (bridges [Acme::LeetSpeak](http://search.cpan.org/perldoc?Acme::LeetSpeak))
-
-- [Bot::Cobalt::Plugin::Silly::Reverse](http://search.cpan.org/perldoc?Bot::Cobalt::Plugin::Silly::Reverse)
+- [Bot::Cobalt::Plugin::Silly::OutputLeet](https://metacpan.org/pod/Bot::Cobalt::Plugin::Silly::OutputLeet)
+Leetspeak output filter (bridges [Acme::LeetSpeak](https://metacpan.org/pod/Acme::LeetSpeak))
+- [Bot::Cobalt::Plugin::Silly::Reverse](https://metacpan.org/pod/Bot::Cobalt::Plugin::Silly::Reverse)
 Reverse a string.
-- [Bot::Cobalt::Plugin::Silly::Rot13](http://search.cpan.org/perldoc?Bot::Cobalt::Plugin::Silly::Rot13)
+- [Bot::Cobalt::Plugin::Silly::Rot13](https://metacpan.org/pod/Bot::Cobalt::Plugin::Silly::Rot13)
 Rot13 a string.
 
 # CONTRIBUTING
