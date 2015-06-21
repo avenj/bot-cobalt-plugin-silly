@@ -20,6 +20,9 @@ Generate pickup lines from [Bone::Easy](https://metacpan.org/pod/Bone::Easy)
 Enlightening newspaper headlines; bridges [Acme::Daily::Fail](https://metacpan.org/pod/Acme::Daily::Fail)
 - [Bot::Cobalt::Plugin::Silly::LOLCAT](https://metacpan.org/pod/Bot::Cobalt::Plugin::Silly::LOLCAT)
 Bridge [POE::Filter::LOLCAT](https://metacpan.org/pod/POE::Filter::LOLCAT) to translate text into LOLCAT
+- [Bot::Cobalt::Plugin::Silly::MakeMoneyAtHome](https://metacpan.org/pod/Bot::Cobalt::Plugin::Silly::MakeMoneyAtHome)
+Bridge [Acme::MakeMoneyAtHome](https://metacpan.org/pod/Acme::MakeMoneyAtHome) to offer useful suggestions on ways to make
+money at home
 - [Bot::Cobalt::Plugin::Silly::OutputLOLCAT](https://metacpan.org/pod/Bot::Cobalt::Plugin::Silly::OutputLOLCAT) 
 LOLCAT-enabled bot output filter
 - [Bot::Cobalt::Plugin::Silly::OutputLeet](https://metacpan.org/pod/Bot::Cobalt::Plugin::Silly::OutputLeet)

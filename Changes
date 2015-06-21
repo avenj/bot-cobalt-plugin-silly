@@ -1,5 +1,9 @@
 Revision history for Bot::Cobalt::Plugin::Silly
 
+0.031001 2015-06-21
+
+  - Add Bot::Cobalt::Plugin::Silly::MakeMoneyAtHome
+
 0.030001 2015-05-23
 
   - 'use strictures 2' for saner fatal warnings behavior
