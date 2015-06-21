@@ -5,6 +5,7 @@ my @modules = qw/
   BoneEasy
   DailyFail
   LOLCAT
+  MakeMoneyAtHome
   OutputLOLCAT
   Reverse
   Rot13

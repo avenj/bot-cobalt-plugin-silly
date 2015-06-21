@@ -45,6 +45,12 @@ Bridge L<POE::Filter::LOLCAT> to translate text into LOLCAT
 
 =item *
 
+L<Bot::Cobalt::Plugin::Silly::MakeMoneyAtHome>
+Bridge L<Acme::MakeMoneyAtHome> to offer useful suggestions on ways to make
+money at home
+
+=item *
+
 L<Bot::Cobalt::Plugin::Silly::OutputLOLCAT> 
 LOLCAT-enabled bot output filter
 
