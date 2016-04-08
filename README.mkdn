@@ -37,13 +37,13 @@ Rot13 a string.
 I'd be happy to review contributed Silly plugins to potentially add 
 more uselessness to this distribution.
 
-Send them off to <avenj@cobaltirc.org>, please.
+Send them off to &lt;avenj@cobaltirc.org>, please.
 
 The only real requirement is that they not do much of anything anyone 
 might find productive.
 
 # AUTHOR
 
-Jon Portnoy <avenj@cobaltirc.org>
+Jon Portnoy &lt;avenj@cobaltirc.org>
 
 [http://www.cobaltirc.org](http://www.cobaltirc.org)

@@ -92,8 +92,11 @@ Bot::Cobalt::Plugin::Silly::AutoOpAll - AutoOp everyone
 
 =head1 SYNOPSIS
 
-  !plugin load AOPAll Bot::Cobalt::Plugin::Silly::AutoOpAll
-  !aopall #mychan
+  > !plugin load AOPAll Bot::Cobalt::Plugin::Silly::AutoOpAll
+  # Add channel to auto-op everyone on:
+  > !aopall #mychan
+  # Remove channel:
+  > !aopall -#mychan
 
 The !aopall command equires at least access level 3.
 
@@ -101,8 +104,8 @@ The !aopall command equires at least access level 3.
 
 A L<Bot::Cobalt> plugin.
 
-Totally silly plugin to automatically op every user joining a channel 
-specified via '!aopall' (assuming the bot is opped, of course).
+Automatically op every user joining a channel specified via '!aopall'
+(assuming the bot is opped, of course).
 
 =head1 AUTHOR
 

@@ -64,9 +64,8 @@ Bot::Cobalt::Plugin::Silly::BoneEasy - Get pickup lines from Bone-Easy
 
 A L<Bot::Cobalt> plugin.
 
-Simple bridge to L<Bone::Easy>.
-
-Generates pickup lines that work every time, 60% of the time.
+Calls out to L<Bone::Easy> to generate pickup lines that work every time, 60%
+of the time.
 
 =head1 AUTHOR
 

@@ -16,7 +16,7 @@ sub Cobalt_register {
 
   $core->log->info("Loaded");
   
-  return PLUGIN_EAT_NONE
+  PLUGIN_EAT_NONE
 }
 
 sub Cobalt_unregister {
