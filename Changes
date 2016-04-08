@@ -1,5 +1,9 @@
 Revision history for Bot::Cobalt::Plugin::Silly
 
+0.031002 2016-04-07
+
+  - Various cleanups
+
 0.031001 2015-06-21
 
   - Add Bot::Cobalt::Plugin::Silly::MakeMoneyAtHome
