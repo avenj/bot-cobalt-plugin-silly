@@ -2,32 +2,28 @@ package Bot::Cobalt::Plugin::Silly::AutoOpAll;
 
 use strictures 2;
 
-use Object::Pluggable::Constants qw/ :ALL /;
-
+use Object::Pluggable::Constants ':ALL';
 use IRC::Utils 'lc_irc';
 
-sub new { bless {}, shift }
+sub new { bless +{}, shift }
 
 sub Cobalt_register {
   my ($self, $core) = splice @_, 0, 2;
-  $self->{AOPChans} = {};
 
-  $core->plugin_register( $self, 'SERVER',
-      'user_joined',
-      'public_cmd_aopall',
+  $core->plugin_register( $self, SERVER =>
+    'user_joined',
+    'public_cmd_aopall',
   );
 
   $core->log->info("Loaded");
 
-  return PLUGIN_EAT_NONE
+  PLUGIN_EAT_NONE
 }
 
 sub Cobalt_unregister {
   my ($self, $core) = splice @_, 0, 2;
-
   $core->log->info("Unloaded");
-
-  return PLUGIN_EAT_NONE
+  PLUGIN_EAT_NONE
 }
 
 
@@ -40,41 +36,31 @@ sub Bot_public_cmd_aopall {
   ## !aopall -#chan
 
   my $nick = $msg->src_nick;
-  
   my $lev = $core->auth->level($context, $nick);
   return PLUGIN_EAT_ALL unless $lev >= 3;
 
-  my $casemap = $core->Servers->{$context}->{CaseMap}
-                // 'rfc1459';
-
+  my $casemap = $core->get_irc_casemap($context) || 'rfc1459' ;
   my $chan = $msg->message_array->[0];
   $chan = lc_irc($chan, $casemap);
 
-  unless ( index($chan, '-') == 0 ) {
-    $self->{AOPChans}->{$context}->{$chan} = 1;
-    $core->send_event( 'notice',
-      $context,
-      $nick,
-      "AutoOpping all on $chan",
-    );
-  } else {
+  if ( index($chan, '-') == 0 ) {
+    # Deletion
     $chan = substr($chan, 1);
-
     my $resp;
-    if (delete $self->{AOPChans}->{$context}->{$chan}) {
-      $resp = "Not autoopping on $chan";
+    if (delete $self->{$context}->{$chan}) {
+      $resp = "No longer autoopping on $chan";
     } else {
       $resp = "No such chan ($chan) found";
     }
-
-    $core->send_event( 'notice',
-      $context,
-      $nick,
-      $resp
+    $core->send_event( notice => $context, $nick, $resp );
+  } else {
+    $self->{$context}->{$chan} = 1;
+    $core->send_event( notice => $context, $nick, 
+      "AutoOpping all on $chan"
     );
   }
   
-  return PLUGIN_EAT_ALL
+  PLUGIN_EAT_ALL
 }
 
 sub Bot_user_joined {
@@ -82,19 +68,17 @@ sub Bot_user_joined {
   my $joined  = ${ $_[0] };
 
   my $context = $joined->context;
-
   my $chan = $joined->channel;
   my $nick = $joined->src_nick;
 
   my $casemap = $core->get_irc_casemap($context) || 'rfc1459' ;
-
   $chan = lc_irc($chan, $casemap);
 
-  if (grep { $_ eq $chan } keys %{ $self->{AOPChans}->{$context} }) {
-    $core->send_event( 'mode', $context, $chan, '+o '.$nick );
+  if (exists $self->{$context}->{$chan}) {
+    $core->send_event( mode => $context, $chan, "+o $nick" );
   }
 
-  return PLUGIN_EAT_NONE
+  PLUGIN_EAT_NONE
 }
 
 1;
